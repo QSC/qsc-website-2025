@@ -1,0 +1,156 @@
+---
+import Footer from "../styles/Footer.module.scss";
+import "../styles/main.scss"
+
+import discordIcon from "../icons/discord.svg"
+import instagramIcon from "../icons/instagram.svg"
+import facebookIcon from "../icons/facebook.svg"
+import flickrIcon from "../icons/flickr.svg"
+import githubIcon from "../icons/github.svg"
+import linkedinIcon from "../icons/linkedin.svg"
+
+---
+
+<footer class="footer">
+    <div class="content">
+        <p class={`sem-h-small altTitle`}>QSC 2024</p>
+        <div>
+            <p class="sem-h-small">Queen's</p>
+            <div class="icons">
+                <div>
+                    <a href="https://www.instagram.com/queensspace/" target="_blank"><img src={instagramIcon.src} alt="instagram icon"/></a>
+                </div>
+
+                <div>
+                    <a href="https://discord.gg/VvDyJMUyfG"><img src={discordIcon.src} alt="discord icon" target="_blank"/></a>
+                </div>
+
+                <div>
+                    <a href="https://www.linkedin.com/company/queen's-space-conference/" target="_blank"><img src={linkedinIcon.src} alt="linkedin icon"/></a>
+                </div>
+
+                <div>
+                    <a href="https://github.com/QSC" target="_blank"><img src={githubIcon.src} alt="github icon"/></a>
+                </div>
+
+                <div>
+                    <a href="https://www.flickr.com/photos/138459246@N06/albums" target="_blank"><img src={flickrIcon.src} alt="flickr icon"/></a>
+                </div>
+
+                <!--<div>-->
+                <!--    <a href="https://www.instagram.com/queensspace/"><img src={facebookIcon.src} alt="facebook icon"/></a>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div>
+            <p class="sem-h-small">Space</p>
+            <p>February 3rd-4th</p>
+            <p>Kingston, Ontario</p>
+        </div>
+        <div>
+            <p class="sem-h-small">Conference </p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2023-2024 Copyright Queen's Space Conference: All Rights Reserved</p>
+    </div>
+</footer>
+<style lang="scss">
+  @import "../styles/fonts";
+  @import "../styles/variables";
+
+  .footer {
+    background-color: $dark-purple;
+    width: 100%;
+    overflow: hidden;
+    padding: 1em;
+    position: relative;
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      row-gap: 2rem;
+
+      @media screen and (max-width: $screen-mobile-large) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .altTitle {
+        display: none;
+
+        @media screen and (max-width: $screen-mobile-large) {
+          display: block;
+        }
+      }
+
+      //cols
+      > div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        //titles
+        > p:nth-child(1) {
+          margin-bottom: 1.5rem;
+          position:relative;
+
+          @media screen and (max-width: $screen-mobile-large) {
+            display:none;
+          }
+        }
+
+        :nth-of-type(1) {
+          p:nth-child(1)::after {
+            height:3px;
+            width:200vw;
+            background-color: $light-purple;
+            position:absolute;
+            content:'';
+            left:-50vw;
+            bottom: -1rem;
+          }
+        }
+      }
+
+      .icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 1rem;
+
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        img {
+          width: 5rem;
+        }
+      }
+    }
+
+    .copyright {
+      width:100%;
+      display: flex;
+      justify-content: right;
+
+      @media screen and (max-width: $screen-mobile-large) {
+        justify-content: center;
+      }
+    }
+  }
+
+  .footer::before {
+    position: absolute;
+    top:0;
+    left:0;
+    content: " ";
+    width: 100%;
+    height:1px;
+    background-color: $light-purple;
+  }
+</style>

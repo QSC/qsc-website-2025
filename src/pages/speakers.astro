@@ -1,0 +1,167 @@
+---
+import Layout from "../layouts/Layout.astro";
+import speakers from "../res/speaker_data_2024_v3.json"
+import SpeakerGroup from "../components/SpeakerGroup.astro";
+import infoIcon from "../icons/information_icon.png";
+import { Image } from 'astro:assets';
+
+// loading all the images in
+const images = await Astro.glob(
+    "../images/Speaker Headshots/*/*.{jpg,JPG,jpeg,png,PNG,webp}"
+).then((files) => {
+    const map = {}
+    for (const file of files) {
+        const f = file.default
+        const name = f.src.split("/").at(-1).split(".")[0]
+        map[name] = f
+        console.log(name)
+    }
+    return map
+});
+
+const currentYear = 2024
+---
+
+<Layout title="Speakers">
+    <meta slot="head" name="description" property="og:description" content="The Queen's Space Conference has had over 75 unique professionals in the space industry speak over our 10 years of running. The conference is centered around a series of exciting talks from professionals in the space spector, innovative workshops, and networking opportunities. Come to QSC 2024 on Febuary 3rd and Febuary 4th to learn about all things space." />
+    <meta slot="head" property="og:url" content="https://www.qsconference.ca/speakers">
+
+    <main slot="content" class="main">
+        <section>
+            <h1>Our Speakers</h1>
+            <p class="desc">Every year we bring in industry professionals to deliver inspiring presentations at our conference. The speakers for QSC 2024 have been carefully selected, and can seen below. Click on the <Image src={infoIcon} width="30px" alt="blue information icon"/> to see a short description of who the speaker is and what they do! You can also see all the past 70+ speakers QSC has had over the past 11 years of running in our <a href="#history">History of QSC Speakers</a> section below.</p>
+            <hr/>
+            <SpeakerGroup speakerList={speakers[currentYear]} year={currentYear} images={images}/>
+            <hr/>
+        </section>
+        <section class="history">
+            <h2 id="history">History of QSC Speakers</h2>
+            <p>Over the past 11 years, QSC has had 70+ speakers present at our conferences. For over a decade we have been connecting students with professionals in the space sector from a variety of backgrounds. We have had astrophysicists, cosmologists, astronauts, engineers, CEOs, COOs, directors, AI specialists, professors, and many more speakers present at QSC. We've had speakers from NASA, CSA, MDA, and Canadian universities, and speakers that have worked on big projects like the James Webb Space Telescope (JWST) and the wide-angle Euclid telescope. Explore all of our speakers below and click on the <Image src={infoIcon} width="30px" alt="blue information icon"/> to learn more! Click on the buttons below to jump to see speakers from a specific year.</p>
+            <!-- buttons to jump to years -->
+            <div>
+                {
+                    Array.from(Array(11).keys()).map(i => {
+                        const year = i+2013
+                        return (<a href={`#${year}`} class="yearButton">{year}</a>)
+                    })
+                }
+            </div>
+            <hr/>
+            <div class="yearSections">
+                {
+                    Object.keys(speakers).reverse().map(year => {
+                        if(year != currentYear)
+                        {
+                            return <SpeakerGroup speakerList={speakers[year]} title={year} year={year} images={images}/>
+                        }
+                        return "";
+                    })
+                }
+            </div>
+        </section>
+    </main>
+</Layout>
+<style lang="scss">
+  @import "../styles/fonts";
+  @import "../styles/variables";
+
+  .main {
+    background-image: url("../images/spacebg.png");
+    background-attachment: fixed;
+    background-size: cover;
+
+    h1 {
+      font-size: 5em;
+      color: $light-purple;
+
+      @media screen and (max-width: $screen-mobile-medium){
+        font-size: 4em;
+      }
+      @media screen and (max-width: $screen-mobile-small){
+        font-size: 3em;
+      }
+    }
+
+    .desc {
+      margin-block: 2em;
+      line-height: 2em;
+
+      img {
+        vertical-align:middle;
+      }
+
+      a {
+        color: $orange;
+      }
+
+      a:hover {
+        color: $white;
+      }
+    }
+
+    hr {
+      border-color:$light-purple;
+      margin:0;
+      margin-block:1em;
+    }
+
+    section {
+      padding-inline:2em;
+      background-color: rgba($dark-purple,90%);
+    }
+
+    section:nth-of-type(1) {
+      padding-bottom: .5em;
+      padding-top:1em;
+    }
+
+    section:nth-of-type(2) {
+      padding-bottom: 1em;
+    }
+
+    .history {
+      h2 {
+        color:$light-purple;
+        scroll-margin-top: calc(var(--navbar-height));
+      }
+
+      >p {
+        line-height: 2em;
+
+        img {
+          vertical-align:middle;
+        }
+      }
+    }
+
+    div:has(>.yearButton) {
+      display: flex;
+      flex-wrap: wrap;
+      gap:0.5em;
+      margin-block: 2em;
+
+      .yearButton {
+        background-color: $light-purple;
+        text-align: center;
+        padding-block: 0.5em;
+        padding-inline: 1.5em;
+        border-radius: 20px;
+        font-size: 1.5em;
+        width: 150px;
+        text-decoration: none;
+        color: $dark-purple;
+      }
+
+      .yearButton:hover {
+        background-color: darken($light-purple,4);
+        color:$white;
+      }
+    }
+
+    .yearSections {
+      display:flex;
+      flex-direction: column;
+      gap:2em;
+    }
+  }
+</style>

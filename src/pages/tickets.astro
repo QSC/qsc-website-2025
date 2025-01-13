@@ -1,0 +1,350 @@
+---
+import "../styles/main.scss";
+import Layout from "../layouts/Layout.astro";
+
+const forSale = true
+---
+<Layout title="Tickets">
+    <meta slot="head" name="description" property="og:description" content="Tickets are now sold out for QSC 2024. Check back in the fall for QSC 2025 tickets!" />
+    <meta slot="head" property="og:url" content="https://www.qsconference.ca/tickets">
+    <link slot="head" rel="canonical" href="https://qsconference.com/tickets">
+
+    <main slot="content" class="main">
+        <div>
+            <h1>Tickets</h1>
+            <p class="ticketBlurb">Thank you for considering being a delegate for QSC 2024! <br/>We cannot wait to bring you more innovative talks and an enriching weekend at the 2024 Queen's Space Conference.</p>
+            <article>
+                <section>
+                    <a class="bursaryBlurb" href="#bursary">*Bursary available for Queen’s Engineering Students. See details on applying at the bottom of the page.</a>
+                    <div class="cards">
+                        <div>
+                            <div class="card">
+                                <h2>One Day Ticket</h2>
+                                <p class="price">$50<span class="orange">*</span></p>
+                                <p class="date">Only Saturday, February 3rd</p>
+                                <ul>
+                                    <li>Attendance on Saturday, February 3rd</li>
+                                    <li>4 speakers (including keynote speaker)</li>
+                                    <li>Case competition with prizes</li>
+                                    <li>Networking event at the venue Saturday night</li>
+                                    <li>Breakfast, lunch, and dinner on Saturday</li>
+                                </ul>
+                                <a class="ticketButton" href="https://www.engsoc.queensu.ca/product/queens-space-conference-delegate-ticket-one-day/" target="_blank">Buy One-Day Ticket</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Full Ticket</h2>
+                                <p class="price">$75<span class="orange">*</span></p>
+                                <p class="date">Both February 3rd and 4th (Saturday and Sunday)</p>
+                                <ul>
+                                    <li>Attendance on Saturday, February 3rd and Sunday, February 4th</li>
+                                    <li>7 speakers (4 speakers on Saturday, including keynote speaker, and 3 speakers on Sunday)</li>
+                                    <li>Case competition with prizes (Saturday)</li>
+                                    <li>Club fair (Sunday)</li>
+                                    <li>Networking event at the venue Saturday night</li>
+                                    <li>Breakfast, lunch, and dinner on Saturday, breakfast on Sunday</li>
+                                </ul>
+                                <a class="ticketButton" href="https://www.engsoc.queensu.ca/product/queens-space-conference-delegate-ticket-two-days/" target="_blank">Buy Full Ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="bursary">
+                    <div class='bursary'>
+                        <h2>Queen’s Engineering Bursary</h2>
+                        <p>Are you a Queen’s Engineering student interested in attending QSC 2024? Apply for a bursary from Engsoc below! A bursary can <span class="orange">reimburse</span> you for up to the <span class="orange">full cost</span> of the ticket! Check out the instructions below to apply for a bursary, then click the button to apply.</p>
+                            <p class="red mt-1">Note that this bursary is only available to Engineering Students at Queen's University</p>
+                        <a class="bursaryButton" href="https://forms.office.com/Pages/ShareFormPage.aspx?id=eCPPiRaKW0S_qx14hTcxIXyaxYRdxflFhdM-OPpAMTtUQjY3UDVMNzVTMjVQTEEzVVROMjIzVEJWMS4u&sharetoken=aLg1GbDUDGZnOCAPRTbQ" target="_blank">Apply for Bursary</a>
+                        <div class="instructions">
+                            <h3>Bursary Form Instructions</h3>
+                            <p>Click on the <span>Apply for Bursary</span> button above or below this message, and fill out the form! <br/> For questions 1, 2, 7, and 10 we have put the answers below, as they may be confusing. If you have any questions please let us know!</p>
+
+                            <div>
+                                <div class="question">
+                                    <p>1.</p>
+                                    <div>
+                                        <p>What event or item are you requesting a bursary for?</p>
+                                        <p>Internal Conference (ie. run by EngSoc)</p>
+                                    </div>
+                                </div>
+
+                                <div class="question">
+                                    <p>2.</p>
+                                    <div>
+                                        <p>If you are applying to an Internal Conference, which one is it?</p>
+                                        <p>QSC</p>
+                                    </div>
+                                </div>
+
+                                <div class="question">
+                                    <p>7.</p>
+                                    <div>
+                                        <p>What is the full fee of the event or item you are requesting a bursary for?</p>
+                                        <p><span>Either</span> $50 <span>or</span> $75 <span>depending on which ticket you are buying!</span></p>
+                                    </div>
+                                </div>
+
+                                <div class="question">
+                                    <p>10.</p>
+                                    <div>
+                                        <p>When is the payment for the item or event due?</p>
+                                        <p>1/28/2024 <span>(January 28th, 2024)</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="bursaryButton" href="https://forms.office.com/Pages/ShareFormPage.aspx?id=eCPPiRaKW0S_qx14hTcxIXyaxYRdxflFhdM-OPpAMTtUQjY3UDVMNzVTMjVQTEEzVVROMjIzVEJWMS4u&sharetoken=aLg1GbDUDGZnOCAPRTbQ" target="_blank">Apply for Bursary</a>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+</Layout>
+<style lang="scss">
+  @import "../styles/fonts";
+  @import "../styles/variables";
+
+  .main {
+    background-image: url("../images/spacebg.png");
+    background-attachment: fixed;
+    background-size: cover;
+    padding-block:1em;
+    padding-inline: 2em;
+    word-wrap: break-word;
+
+    p {
+      font-size: 1.1em;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      gap:2em;
+
+      @media screen and (min-width: $screen-mobile-large) {
+        margin-inline: 12vw;
+      }
+    }
+
+    section:nth-of-type(2) {
+      // scrolls into proper place when anchor clicked
+      scroll-margin-top: calc(var(--navbar-height) + 4em);
+    }
+
+    h1 {
+      color: $yellow;
+      font-size: 5em;
+      margin-bottom: .2em;
+      @media screen and (max-width: $screen-mobile-medium){
+        font-size: 4em;
+      }
+      @media screen and (max-width: $screen-mobile-small){
+        font-size: 3em;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2em;
+    }
+
+    :global(span.orange) {
+      font-weight: $heavy-weight;
+    }
+
+    .ticketBlurb, .bursaryBlurb {
+      background-color: rgba(black, 40%);
+      border-radius: 20px;
+      // to make the p tag shrink to the text size
+      display:inline-block;
+    }
+
+    .ticketBlurb {
+      font-size: 1.3em;
+      font-weight: $medium-weight;
+      margin-bottom: 1em;
+    }
+
+    .bursaryBlurb {
+      color: $orange;
+      margin-bottom: .5em;
+      padding:.3em;
+      padding-inline: .5em;
+      font-weight: $medium-weight;
+      text-decoration: none;
+    }
+
+    a {
+      text-decoration: none;
+      border-radius: 20px;
+      text-align: center;
+      font-family: $orbitron;
+      font-weight: $medium-weight;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: row;
+      gap: 4em;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      @media screen and (min-width: $screen-desktop) {
+        justify-content: space-between;
+      }
+    }
+
+    div:has(>.card) {
+      @media screen and (min-width: $screen-desktop) {
+        max-width: 40%;
+        min-width: 30ch;
+      }
+    }
+
+    .card {
+      background-color: rgba($light-purple, 70%);
+      padding-inline: 1.5em;
+      padding-block:1.25em;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .3em;
+      width: 100%;
+
+      .price {
+        color: $yellow;
+        font-family: $orbitron;
+        font-size: 1.5em;
+        font-weight: $medium-weight;
+        text-align: center;
+      }
+
+      .date {
+        color: yellow;
+        margin-bottom:1em;
+        font-weight: $medium-weight;
+        text-align: center;
+      }
+
+      ul {
+        list-style: disc;
+        padding-inline: 1em;
+      }
+
+      li:not(:last-child) {
+        margin-bottom: .4em;
+      }
+
+      a.ticketButton {
+        padding: 1em;
+        background-color: $dark-purple;
+        width: 90%;
+        color: $yellow;
+        font-size: 1.1em;
+        margin-top: 1em;
+      }
+
+      a.ticketButton:hover {
+        background-color: lighten($dark-purple,15);
+        color: $orange;
+      }
+    }
+
+    .bursary::before {
+      content: "*";
+      color: $orange;
+      font-size: 5em;
+      position: absolute;
+      top:-.5em;
+      left:-.3em;
+      font-family: $orbitron;
+    }
+
+    .bursary {
+      background-color: rgba($dark-purple, 40%);
+      border-radius: 20px;
+      padding-inline: 1.5em;
+      padding-block:1.25em;
+      position: relative;
+
+      h2, h3 {
+        text-align: left;
+        color: $orange;
+      }
+
+      h3 {
+        font-size:2em;
+      }
+
+      a.bursaryButton {
+        background-color: $light-purple;
+        color: $dark-purple;
+        font-size: 1.3em;
+        padding: .8em;
+        border: 3px solid $orange;
+        display: inline-block;
+        font-weight: $medium-weight;
+        margin-top:1em;
+      }
+
+      a.bursaryButton:hover {
+        background-color: lighten($dark-purple,0);
+        color: $yellow;
+      }
+
+      .instructions {
+        margin-top:1em;
+        p:nth-of-type(1) {
+          >span {
+            color:lighten($light-purple,10);
+            font-weight: $heavy-weight;
+          }
+        }
+
+        div:has(>.question) {
+          display: flex;
+          flex-direction: column;
+          gap:1em;
+          margin-top:1em;
+        }
+
+        .question {
+          display: flex;
+          flex-direction: row;
+          gap:.5em;
+          padding:1em;
+          background-color: rgba($dark-purple,70%);
+          border-radius: 20px;
+
+          // numbers
+          >p:nth-of-type(1) {
+            color: $orange;
+            font-weight: $heavy-weight;
+          }
+
+          // the div with the Q and A
+          >div {
+            display: flex;
+            flex-direction: column;
+
+            // Q
+            p:nth-of-type(1) {
+              color: $orange;
+            }
+
+            // A
+            p:nth-of-type(2) {
+              color: yellow;
+              span {
+                color:$white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

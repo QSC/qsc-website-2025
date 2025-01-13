@@ -1,0 +1,432 @@
+---
+import "../styles/main.scss"
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImage from "../images/qsc_logo_outlined_cropped_w800.png";
+import bg1 from "../images/bg/speaker_1.jpg";
+import bg2 from "../images/bg/case_comp.jpeg";
+import bg3 from "../images/bg/speaker_2.jpg";
+import bg4 from "../images/bg/case_comp_1.jpg";
+import bg5 from "../images/bg/speaker_3.jpg";
+
+import locationIcon from "../icons/location.svg"
+import calendarIcon from "../icons/calendar.svg"
+import speakerIcon from "../icons/speaker.svg"
+import networkingIcon from "../icons/networking.svg"
+import shuttleIcon from "../icons/space-shuttle.svg"
+import astronautIcon from "../images/astronaut_icon.png"
+
+import { getImage } from "astro:assets"
+import {callEndpoint} from "astro/dist/core/endpoint";
+import Question from "../components/Question.astro";
+---
+<Layout title="Home">
+	<meta slot="head" name="description" property="og:description" content="The Queen's Space Conference (QSC) is an annual space conference held in Kingston, Ontario. The conference is centered around a series of exciting talks from professionals in the space spector, innovative workshops, and networking opportunities. Come to QSC 2024 on Febuary 3rd and Febuary 4th to learn about all things space." />
+	<meta slot="head" property="og:url" content="https://www.qsconference.ca/home">
+	<link slot="head" rel="canonical" href="https://qsconference.com/home">
+
+	<main slot="content">
+		<section class="hero">
+			<div class="top">
+				<div>
+					<div class="logoContainer">
+						<Image src={logoImage} alt="Queen's Space Conference Logo" style="height: auto; width: 50rem; object-fit: cover";/>
+					</div>
+					<div class="heroTitleBox">
+						<div class="heroTitle">
+							<h1>Inspiring; <br/> <span class="light-purple">Educating;</span> <br/> Connecting.</h1>
+						</div>
+						<div>
+							<p>Queen's Space Conference 2024</p>
+						</div>
+						<div class="tickets">
+							<a href="../schedule">See Schedule</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div  class="center p-2 mt-1 bottom">
+				<div>
+					<p class="sem-h-small">QSC 2024</p>
+					<p class="sem-h-small">Feb. 3rd-4th</p>
+					<p class="sem-h-small">Kingston, Ontario</p>
+				</div>
+			</div>
+		</section>
+
+		<div style="position:relative;" aria-hidden="true">
+			<div class="bgs" >
+				<Image src={bg1} alt="bg image" style="width: 100%; height: auto; object-fit: contain"/>
+				<Image src={bg2} alt="bg image" style="width: 100%; height: auto; object-fit: contain"/>
+				<Image src={bg3} alt="bg image" style="width: 100%; height: auto; object-fit: contain"/>
+				<Image src={bg4} alt="bg image" style="width: 100%; height: auto; object-fit: contain"/>
+				<Image src={bg5} alt="bg image" style="width: 100%; height: auto; object-fit: contain"/>
+			</div>
+
+			<section class="about">
+				<div class="pl-3 pr-3 pt-2">
+					<h2>What is QSC?</h2>
+
+					<div class="p-5 points">
+						<div>
+							<div>
+								<img src={locationIcon.src} alt="an icon of a map pin">
+								<img src={calendarIcon.src} alt="an icon of a calendar">
+							</div>
+							<div>
+								<h3>Feb. 3rd-4th | Residence Inn Marriott, Kingston, Ontario</h3>
+							</div>
+							<div>
+								<p>The conference will span two days, starting on February 3rd and ending the evening of the 4th. The conference will include presentations from speakers, a case competition, a networking fair, a social, and more opportunities to connect with others at the conference. It will take place at the <a target="_blank" href="https://www.google.com/maps/place/Residence+Inn+by+Marriott+Kingston+Water's+Edge/@44.2266073,-76.4834378,17z/data=!3m1!4b1!4m9!3m8!1s0x4cd2aafb92ffbc73:0x924a3d11d98b3882!5m2!4m1!1i2!8m2!3d44.2266046!4d-76.4816049!16s%2Fg%2F1tg6prcs?entry=ttu">Residence Inn Marriott in Kingston, Ontario</a>. The address is <span>7 Earl St, Kingston, ON K7L 0A4</span>.</p>
+							</div>
+						</div>
+
+						<div>
+							<div>
+								<Image src={astronautIcon} alt="astronaut"/>
+								<img id="podium" src={speakerIcon.src} alt="an icon of speaker at a podium">
+							</div>
+							<div>
+								<h3>7 Speakers</h3>
+							</div>
+							<div>
+								<p>We bring <span class="em">industry professionals</span> to our conference in order to provide delegates the most informative, inspiring, and memorable conference possible. Seven speakers will talk about their role in the space industry, their contributions, and where we are headed. Past speakers include CEOs, engineers, astrophysicists, astronauts, AI specialists, and more. More information about our past speakers will be posted on this website soon, and information on this years speakers will be announced soon as well!</p>
+							</div>
+						</div>
+
+						<div>
+							<div>
+								<img src={networkingIcon.src} alt="an icon of 3 people">
+							</div>
+							<div>
+								<h3>Networking</h3>
+							</div>
+							<div>
+								<p>We provide networking opportunities with our speakers and their respective organizations, as well as with our cosponsors, other students, and all other delegates. There will be a networking showcase with booths set up representing extracurriculars, research opportunities, and space-related companies at our conference.</p>
+							</div>
+						</div>
+
+						<div>
+							<div>
+								<img class="rotate45" src={shuttleIcon.src} alt="an icon of a map pin">
+							</div>
+							<div>
+								<h3>Blast off!</h3>
+							</div>
+							<div>
+								<p>
+									QSC is about sparking thought and idea-generation, connecting our delegates with those who can launch them towards their goals, and spreading education and love for space. QSC is an opportunity to learn, grow, and connect meaningfully. Explore your passions and interests at QSC 2024.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="faq">
+				<div class="watermark" aria-hidden="true">?</div>
+				<div class="pl-3 pt-2">
+					<h2>Frequently Asked Questions</h2>
+					<div class="p-4">
+						<Question question="I have a question that isn't listed here. Who do I ask?">
+							Please direct any general inquiries to <a href="mailto:qsc@engsoc.queensu.ca">qsc@engsoc.queensu.ca</a>, or connect with us on our instagram <a href="https://www.instagram.com/queensspace/">@queensspace</a>.
+							<p>If you have a question about sponsoring please contact: <a href="mailto:qsc.sponsorships@engsoc.queensu.ca" target="_blank">qsc.sponsorships@engsoc.queensu.ca</a>.</p>
+							<p>We also have a QSC 2024 Discord Server. The Exec team is on there to monitor any questions you might have. During the conference, we will be using the server to make important announcements. <a href="https://discord.gg/VvDyJMUyfG" target="_blank">Click here to join.</a> </p>
+						</Question>
+						<Question question="How do I buy tickets?">
+							<!--<p>Tickets are for sale now! Click <a href="../tickets">here</a> to go to our ticket page for more information.-->
+							<!--</p>-->
+							<p>Tickets are <span class="orange">sold out</span> for QSC 2024. Check back in fall 2024 for QSC 2025 tickets!</p>
+						</Question>
+						<Question question="Where is the conference located?">
+							<p>The conference is located at the Residence Inn by Marriott Kingston Water's Edge. This is in Kingston, Ontario. The address is <strong>7 Earl St, Kingston, ON K7L 0A4</strong>, you can <a target="_blank" href="https://www.google.com/maps/place/Residence+Inn+by+Marriott+Kingston+Water's+Edge/@44.2266073,-76.4834378,17z/data=!3m1!4b1!4m9!3m8!1s0x4cd2aafb92ffbc73:0x924a3d11d98b3882!5m2!4m1!1i2!8m2!3d44.2266046!4d-76.4816049!16s%2Fg%2F1tg6prcs?entry=ttu">click here</a> to view it in google maps.
+							</p>
+						</Question>
+						<!--<Question question="Do you have to be a Queen’s student to come to the conference?">-->
+						<!--	<p>No, you do not! Students from everywhere are welcome and encouraged to come to the Queen’s Space Conference.-->
+						<!--	</p>-->
+						<!--</Question>-->
+						<Question question="What should I wear to the conference?">
+							<p>Aim to wear clothes that are business casual! This might look look like dress pants paired with a dress shirt or a sweater.
+							</p>
+						</Question>
+						<Question question="What is a case competition?">
+							<p>Case competitions are case studies of tangible, real world scenarios. Delegates will be placed into groups that will work together on solving a proposed issue/problem. Within an allocated time frame, delegates will strive to develop a solution or plan with their team, followed by a presentation at the conference. Case competitions are a fun way to exercise your mind and problem solving abilities while working with other like-minded people, while also competing against other groups. Past case comps have covered topics such as cleaning up space debris, mining asteroids, and more.</p>
+						</Question>
+
+						<!--<Question question="How can I sponsor QSC?">-->
+						<!--	<p>Thank you for considering sponsoring the 2024 Queen's Space Conference! Please check out our sponsorship package <a href="https://qsconference.ca/Sponsorship%20Package.pdf">HERE</a> and reach out to <a href="mailto:qsc.sponsorships@engsoc.queensu.ca">qsc.sponsorships@engsoc.queensu.ca</a> for more information.</p>-->
+						<!--</Question>-->
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+</Layout>
+<style lang="scss">
+	@import "../styles/fonts";
+	@import "../styles/variables";
+
+	$about-bg: rgba($dark-purple, 90%);
+	$faq-bg: rgba($light-purple, 80%);
+
+	main:has(.hero) {
+		background-image: url("../images/spacebg.png");
+		background-attachment: fixed;
+		background-size: cover;
+	}
+
+	.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: calc(100vh - var(--navbar-height));
+		overflow: hidden;
+		position:relative;
+
+		>* {
+			z-index: 1;
+		}
+		.top {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			flex-basis: 100%;
+			flex-grow: 1;
+		}
+
+		.top > div {
+			display: flex;
+			flex-direction: row;
+			flex-basis: 100%;
+			justify-content: space-evenly;
+			@media screen and (max-width: $screen-mobile-large) {
+				justify-content: center;
+			}
+			gap: 3rem;
+			align-items: center;
+			flex-wrap: wrap;
+
+			.logo-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.heroTitleBox {
+				.heroTitle {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: relative;
+					h1 {
+						@media screen and (max-width: $screen-mobile-large){
+							font-size: 4rem;
+							line-height: 2em;
+						}
+					}
+				}
+				.tickets {
+					color: darken($light-purple,4);
+					margin-top: 1em;
+					a {
+						font-size: 2.5em;
+						background-color: rgba($dark-purple, 40%);
+						font-family: $quicksand;
+						font-weight: $regular-weight;
+						border: .5rem solid rgba($light-purple, 40%);
+						border-radius: 1rem;
+						padding-inline: .3em;
+						text-decoration: none;
+						color:inherit;
+					}
+					a:hover, a:focus {
+						color: lighten($light-purple, 2);
+						font-weight: $medium-weight;
+						background-color: rgba(lighten($dark-purple,10), 40%);
+					}
+				}
+			}
+		}
+
+		.bottom {
+			background-color: rgba($light-purple, 40%);
+			padding: 1em;
+			padding-inline: 2em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			div {
+				display: flex;
+				font-size: 2.5rem;
+				font-weight: $heavy-weight;
+				flex-grow: 1;
+				justify-content: center;
+
+				> * {
+					margin: 0 auto;
+				}
+				@media screen and (max-width: $screen-mobile-large) {
+					flex-direction: column;
+				}
+			}
+		}
+
+		@media screen and (max-width: $screen-mobile-large) {
+			img {
+				display: none;
+			}
+		}
+
+		@media screen and (max-width: $screen-desktop) {
+			* {
+				text-align: center;
+			}
+		}
+	}
+
+	// black to cover the bg image to make text readable
+	.hero::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width:100%;
+		height:100%;
+		background-color: rgba(0 0 0 / .30);
+		z-index: 0;
+		content:"";
+	}
+
+	.bgs {
+		position: absolute;
+		overflow:hidden;
+		z-index: 0;
+		max-height: 100%;
+
+		* {
+			display:block;
+		}
+	}
+
+	.about {
+		position: relative;
+		margin: 0;
+		background-color: $about-bg;
+		//background: linear-gradient(to bottom, $about-bg 95%, $faq-bg 100%);
+
+		a {
+			color: lighten($orange,9);
+			font-weight: $medium-weight;
+
+		}
+		a:hover {
+			color: $white;
+		}
+
+		.points {
+			--l-padding: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			align-items: center;
+
+			> div {
+
+			}
+
+			h3 {
+				font-family: $quicksand;
+				font-weight: $regular-weight;
+				margin-left: var(--l-padding);
+				margin-bottom: .1em;
+				@media screen and (max-width: $screen-mobile-large) {
+					text-align: center;
+					margin-left: 0;
+				}
+			}
+
+			div:has(> img) {
+				display: flex;
+				justify-content: left;
+				align-items: center;
+				padding: 1rem;
+				gap: 2rem;
+				margin-left: var(--l-padding);
+				@media screen and (max-width: $screen-mobile-large) {
+					justify-content: center;
+					margin:0;
+				}
+			}
+
+			//div with the map and calendar
+			div:has(> img) {
+				img {
+					height: 8rem;
+					width: auto;
+				}
+			}
+
+			div:has(>p) {
+				p {
+					padding: var(--l-padding);
+					background-color: rgba(darken($light-purple,2), 60%);
+					border-radius: 15px;
+					max-width:80%;
+
+					.em {
+						color: $orange;
+						font-weight: $heavy-weight;
+					}
+				}
+				@media screen and (max-width: $screen-mobile-large) {
+					display:flex;
+					justify-content: center;
+				}
+			}
+		}
+	}
+
+	.faq {
+		background-color: $faq-bg;
+		//background: linear-gradient(to bottom, $about-bg 5%, $faq-bg 10%);
+		position: relative;
+		z-index: 0;
+		overflow: hidden;
+
+		div:nth-child(2) {
+			position:relative;
+		}
+
+		* {
+			z-index: 2;
+		}
+
+		.watermark {
+			font-size: 50rem;
+			position: absolute;
+			font-weight: $medium-weight;
+			font-family: $inter;
+			top:-15rem;
+			left:-5rem;
+			line-height: 1em;
+			z-index: 1;
+			color: rgba(lighten($dark-purple,6), 80%);;
+		}
+
+		*:has(>faq-question) {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+
+			@media screen and (max-width: $screen-mobile-large) {
+				//  align-items: center;
+			}
+		}
+	}
+
+	section {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+</style>

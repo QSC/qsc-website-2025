@@ -1,0 +1,100 @@
+---
+import "../styles/main.scss"
+import speakerIcon from "../icons/speaker.svg";
+import {Image} from "astro:assets";
+import infoIcon from "../icons/information_icon.png"
+import wwwIcon from "../icons/www_icon.png"
+import Modal from "./Modal.astro";
+import SpeakerBio from "./SpeakerBioButton.astro";
+
+const { speaker, images, year } = Astro.props;
+
+const headshotPath = speaker["headshot-path"].split(".")[0]
+let src = ""
+if(headshotPath && Object.keys(images).includes(headshotPath)) {
+    src = images[headshotPath]
+} else {
+    src = speakerIcon
+    console.error(`Couldn't find headshot for ${speaker.name} from ${year}...using default headshot`)
+}
+---
+
+<div class="speaker">
+    <div class="imgDiv">
+        <Image
+                src={src}
+                alt=`headshot of ${speaker.name}`
+        />
+    </div>
+    <div class="text">
+        <p>{speaker.name}</p>
+        <p class="orange">{speaker.company}</p>
+        <p set:html={speaker.position.replaceAll("/","/<wbr/>")}></p>
+        <div class="icons">
+            <SpeakerBio speaker={speaker} year={year} src={src}/>
+        </div>
+    </div>
+</div>
+<style lang="scss">
+  @import "../styles/fonts";
+  @import "../styles/variables";
+
+  :root {
+    --img-size: 250px;
+
+    @media screen and (max-width: $screen-desktop) {
+      --img-size: 200px;
+    }
+  }
+
+  .speaker {
+    display: flex;
+    flex-direction: row;
+    gap:1em;
+    font-size: 1em;
+    font-family: $orbitron;
+    flex-wrap: wrap;
+    //max-width: ;
+
+    @media screen and (max-width: $screen-desktop) {
+      justify-content: center;
+    }
+
+    @media screen and (max-width: $screen-mobile-large){
+      flex-direction: column;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: .4em;
+
+      > p {
+        max-width: 15ch;
+        word-break: break-word;
+      }
+
+      p:nth-child(2),p:nth-child(3) {
+        font-family: $quicksand;
+      }
+    }
+
+    .imgDiv {
+      width: var(--img-size);
+      height: var(--img-size);
+      overflow: hidden;
+      position:relative;
+      border-radius: 15px;
+
+      img {
+        position:absolute;
+        border-radius: 15px;
+        width: var(--img-size);
+        height:auto;
+      }
+    }
+
+    .icons {
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import "../styles/main.scss"
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="404">
+    <meta slot="head" NAME="ROBOTS" CONTENT="NOINDEX"/>
+    <meta slot="head" name="description" property="og:description" content="The Queen's Space Conference (QSC) is an annual space conference held in Kingston, Ontario. The conference is centered around a series of exciting talks from professionals in the space spector, innovative workshops, and networking opportunities. Come to QSC 2024 on Febuary 3rd and Febuary 4th to learn about all things space." />
+    <meta slot="head" property="og:url" content="https://www.qsconference.ca/404">
+    <main slot="content" class="main">
+        <h1>Are you lost?</h1>
+        <p>This page does not exist!<br/>Use the navigation bar at the top of your screen to find the page your were looking for.</p>
+        <p>If you think this is a mistake (ie. you scanned a QR code or followed a link and ended up here) please let our IT Department know at <a href="mailto:qsc.it@engsoc.queensu.ca">qsc.it@engsoc.queensu.ca</a>.</p>
+
+        <a href="../home">Go back to main site</a>
+    </main>
+</Layout>
+<style lang="scss">
+  @import "../styles/fonts";
+  @import "../styles/variables";
+
+  .main {
+    background-color: $dark-purple;
+    padding:2em;
+
+    h1 {
+      color: $light-purple;
+    }
+
+    p {
+      margin-top: .6em;
+    }
+
+    p > a {
+      color: $orange;
+    }
+
+    > a {
+      padding: 1em;
+      background-color: $light-purple;
+      border-radius: 20px;
+      display: inline-block;
+      text-decoration: none;
+      margin-top:1em;
+      color:$white;
+      font-family: $orbitron;
+      font-weight: $medium-weight;
+      letter-spacing: .05em;
+    }
+
+    > a:hover {
+      background-color: darken($light-purple,20);
+      color:$orange;
+    }
+  }
+</style>

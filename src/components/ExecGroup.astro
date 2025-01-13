@@ -1,0 +1,58 @@
+---
+import "../styles/main.scss"
+import { Image } from 'astro:assets';
+import mail from "../icons/mail.svg"
+import githubIcon from "../icons/githubIcon.svg"
+const { title, email, githubLink } = Astro.props;
+---
+
+<div>
+    <div class="title">
+        { githubLink && <a href={githubLink} target="_blank"><img src={githubIcon.src}/></a>}
+        <h3>{title}</h3>
+        { email && <a href=`mailto:${email}`><img src={mail.src}/></a>}
+    </div>
+    <div class="execs">
+        <slot/>
+    </div>
+</div>
+<style lang="scss">
+  @import "../styles/variables";
+  @import "../styles/fonts";
+
+  h3 {
+    text-align: center;
+    font-family: $quicksand;
+    font-size: 2.5em;
+
+    @media screen and (max-width: $screen-mobile-large) {
+      font-size: 2em;
+    }
+
+    @media screen and (max-width: $screen-mobile-medium) {
+      font-size: 1.5em;
+    }
+  }
+
+  .execs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 6em;
+    row-gap: 1em;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6em;
+    margin-bottom:.8em;
+
+    img {
+      display: block;
+      width: 40px;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import "../styles/main.scss"
+import { Image } from 'astro:assets';
+import linkedinIcon from "../icons/linkedin.svg"
+const { img, name, position, linkedin } = Astro.props;
+---
+
+<div class="exec">
+    <Image src={img} alt=`headshot of ${name}`width="600px" height="600px"/>
+    <div class="desc">
+        <p>{name}</p>
+        <p>{position}</p>
+        { linkedin && (
+                <a href={linkedin} target="_blank"><img src={linkedinIcon.src} alt="linkedin logo" width="25px"/></a>
+        )}
+    </div>
+</div>
+<style lang="scss">
+  @import "../styles/variables";
+  @import "../styles/fonts";
+
+  .exec {
+    width: 250px;
+
+    > img {
+      border-radius: 20px;
+      width:250px;
+      height:250px;
+    }
+
+    .desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap:.25em;
+
+      p:nth-child(1) {
+        font-weight: $heavy-weight;
+      }
+
+      p {
+        font-size: 1.1em;
+        text-align: center;
+      }
+    }
+  }
+</style>

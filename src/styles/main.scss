@@ -1,0 +1,104 @@
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "spacing";
+
+:root {
+  font-size: max(calc(900vw / 1280), 8px);
+  font-family: $quicksand;
+  color: $white;
+}
+
+html {
+  min-height: 100vh;
+}
+
+//@media screen and (max-width: $screen-mobile-large){
+//  :root {
+//    font-size: 8px;
+//  }
+//}
+//
+//@media screen and (min-width: $screen-mobile-large) {
+//  :root {
+//    font-size: 15px;
+//  }
+//}
+
+body {
+  font-size: 2rem;
+  min-height: 100vh;
+  background-color: $dark-purple;
+}
+
+h1,h2,h3 {
+  font-family: $orbitron;
+  font-weight: $medium-weight;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+.sem-h-small {
+  font-family: $orbitron;
+  font-weight: $regular-weight;
+  font-size: 3rem;
+  color: $white;
+  line-height: 1.25;
+}
+
+.center {
+  text-align: center;
+}
+
+.rotate45 {
+  rotate: 45deg;
+}
+.rotate180 {
+  rotate: 180deg;
+}
+.shown {
+  display: block !important;
+}
+.light-purple {
+  color: $light-purple !important;
+}
+.light-purple-d3 {
+  color: darken($light-purple,2) !important;
+}
+
+.dark-purple {
+  color: $dark-purple !important;
+}
+
+.faq-answer {
+  display:none;
+  padding: 1.5em;
+
+  a {
+    color: lighten($orange,9);
+    font-weight: $medium-weight;
+
+  }
+  a:hover {
+    color: $white;
+  }
+}
+
+.orange {
+  color:$orange;
+}
+
+.red {
+  color: #f3452e;
+}

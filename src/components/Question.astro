@@ -1,0 +1,124 @@
+---
+import "../styles/main.scss"
+import ShuttleArrowIcon from "./ShuttleArrowIcon.astro";
+const { question } = Astro.props;
+---
+
+<faq-question>
+    <div class="header">
+        <p>{question}</p>
+        <button class="question-button">
+            <div>
+                <ShuttleArrowIcon/>
+            </div>
+        </button>
+    </div>
+
+    <div aria-hidden="true" class="faq-answer">
+        <slot/>
+    </div>
+</faq-question>
+<script>
+    class Question extends HTMLElement {
+        static count = 0
+        answerShown = false
+
+        constructor() {
+            super()
+        }
+        connectedCallback() {
+            Question.count += 1
+
+            const btn =  this.querySelector(".question-button")
+            let q_id = `faq-answer${Question.count}`
+            btn["aria-controls"] = q_id
+            btn.ariaExpanded = "false"
+
+            const answ =  this.querySelector(".faq-answer")
+            answ.id = q_id
+
+            const handleClick = e => {
+                this.answerShown = !this.answerShown
+                const answ =  this.querySelector(".faq-answer")
+                const btn =  this.querySelector(".question-button")
+
+                if(this.answerShown) {
+                    answ.classList.add("shown")
+                    answ.ariaHidden = "false"
+
+                    btn.ariaExpanded = "true"
+
+                    this.querySelector("svg").classList.add("rotate180")
+                } else {
+                    answ.classList.remove("shown")
+                    answ.ariaHidden = "true"
+
+                    btn.ariaExpanded = "false"
+
+                    this.querySelector("svg").classList.remove("rotate180")
+                }
+            }
+            this.querySelector("button").addEventListener("click", handleClick)
+        }
+    }
+    // Tell the browser to use our AstroHeart class for <astro-heart> elements.
+    customElements.define("faq-question", Question);
+</script>
+<style lang="scss">
+  @import "../styles/fonts";
+  @import "../styles/variables";
+
+  $border-rad: 1em;
+  faq-question {
+    position: relative;
+    display: block;
+    background-color: darken($light-purple,2);
+    border-radius: $border-rad;
+    max-width: 50vw;
+    //border: 1rem solid darken($dark-purple, 3);
+    box-shadow:inset 0px 0px 0px 10px darken($dark-purple, 3);
+    word-wrap: break-word;
+    @media screen and (max-width: $screen-mobile-large) {
+      max-width: 80vw;
+    }
+    .header {
+      font-family: $inter;
+      background-color: $dark-purple;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1em;
+      border-radius: $border-rad;
+      border: 1rem solid darken($dark-purple, 3);
+      width:100%;
+      gap:1em;
+
+      button {
+        all: unset;
+        cursor: pointer;
+      }
+      button:focus-visible{
+        outline: $light-purple solid 3px;
+      }
+
+      div:has(> svg) {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      :global(svg) {
+        height: 2em;
+        width: auto;
+        color:$light-purple;
+      }
+
+      button:hover {
+        svg {
+          color: darken($light-purple, 5)
+        }
+      }
+    }
+  }
+</style>

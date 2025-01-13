@@ -1,0 +1,86 @@
+---
+import "../styles/main.scss"
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Schedule">
+    <meta slot="head" name="description" property="og:description" content="Here is the scheduled itinerary for QSC 2024, complete with times and locatios." />
+    <meta slot="head" property="og:url" content="https://www.qsconference.ca/schedule">
+    <link slot="head" rel="canonical" href="https://qsconference.com/schedule">
+
+    <main slot="content">
+        <section>
+            <h1>Schedule & Info</h1>
+            <p>Welcome to QSC 2024!</p>
+            <p>Find the scheduled itinerary below. While there may be minor changes, this is the overall structure of our conference this weekend!</p>
+            <p>The conference is taking place at <strong>7 Earl St, Kingston, ON K7L 0A4</strong>, you can <a target="_blank" href="https://www.google.com/maps/place/Residence+Inn+by+Marriott+Kingston+Water's+Edge/@44.2266073,-76.4834378,17z/data=!3m1!4b1!4m9!3m8!1s0x4cd2aafb92ffbc73:0x924a3d11d98b3882!5m2!4m1!1i2!8m2!3d44.2266046!4d-76.4816049!16s%2Fg%2F1tg6prcs?entry=ttu">click here</a> to view it in google maps.</p>
+            <p>We have created a Discord Server for QSC 2024. Join to ask questions and meet the Exec team and the other delegates. Important announcements will be made there throughout the conference, as well as on our instagram!</p>
+            <a class="discord" target="_blank" href="https://discord.gg/VvDyJMUyfG">Click here to join the discord server!</a>
+            <div>
+                <img src="../2024-sat-schedule.png"/>
+                <img src="../2024-sun-schedule.png"/>
+            </div>
+        </section>
+    </main>
+</Layout>
+<style lang="scss">
+  @import "../styles/variables";
+  @import "../styles/fonts";
+
+  *:has(>img) {
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+    }
+
+    img {
+      max-width: 50%;
+      @media screen and (max-width: $screen-mobile-large) {
+        max-width: 100%;
+      }
+    }
+
+    p {
+      padding-block:.5em;
+    }
+
+    main {
+      background-image: url("../images/painting.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    section {
+      padding-inline:2em;
+      padding-top:1em;
+      padding-bottom: 2em;
+      background-color: rgba($dark-purple, 90%);
+    }
+
+    h1 {
+      font-size: 5em;
+      @media screen and (max-width: $screen-mobile-large) {
+        font-size: 4em;
+      }
+    }
+
+    a {
+      color: $orange;
+    }
+
+    .discord {
+      background-color:cornflowerblue;
+      border-radius:20px;
+      padding: .8em;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    .discord:hover {
+      color:$orange;
+      background-color: darken(cornflowerblue, 2);
+    }
+</style>
