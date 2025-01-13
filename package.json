@@ -1,5 +1,5 @@
 {
-  "name": "qsc-website-2024",
+  "name": "qsc-website-2025",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.3.0",
-    "sass": "^1.69.3"
+    "astro": "^5.1.5",
+    "sass": "^1.69.3",
+    "sharp": "^0.33.5"
   }
 }
