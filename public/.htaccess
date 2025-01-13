@@ -15,6 +15,14 @@ Redirect 301 /sponsorship https://qsconference.ca/Sponsorship%20Package.pdf
 # Common Redirects to about page
 Redirect 301 /about https://qsconference.ca/about-us
 Redirect 301 /staff https://qsconference.ca/about-us
+Redirect 301 /team https://qsconference.ca/about-us
+Redirect 301 /info https://qsconference.ca/about-us
+
+# Common Redirects to hiring page
+Redirect 301 /hiring https://qsconference.ca/apply
+Redirect 301 /jobs https://qsconference.ca/apply
+Redirect 301 /applications https://qsconference.ca/apply
+Redirect 301 /join https://qsconference.ca/apply
 
 Redirect 301 /handbook https://qsconference.ca/Delegate%20Handbook.pdf
 
