@@ -18,6 +18,71 @@ const { question } = Astro.props;
         <slot/>
     </div>
 </faq-question>
+<style lang="scss">
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
+  @use "sass:color";
+
+  $border-rad: 1em;
+  $question-border-color: color.adjust(vars.$dark-purple, $lightness: -3%);
+
+  :root {
+    --shuttle-color: vars.$light-purple;
+  }
+
+  faq-question {
+    position: relative;
+    display: block;
+    background-color: color.adjust(vars.$light-purple, $lightness: -2%);
+    border-radius: $border-rad;
+    max-width: 50vw;
+    //border: 1rem solid darken($dark-purple, 3);
+    box-shadow:inset 0px 0px 0px 10px $question-border-color;
+    word-wrap: break-word;
+    @media screen and (max-width: vars.$screen-mobile-large) {
+      max-width: 80vw;
+    }
+    .header {
+      font-family: fonts.$inter;
+      background-color: vars.$dark-purple;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1em;
+      border-radius: $border-rad;
+      border: 1rem solid $question-border-color;
+      width:100%;
+      gap:1em;
+
+      button {
+        all: unset;
+        cursor: pointer;
+      }
+      button:focus-visible{
+        outline: vars.$light-purple solid 3px;
+      }
+
+      div:has(> svg) {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        color:inherit;
+      }
+      --shuttle-color: #{vars.$light-purple};
+
+      :global(svg) {
+        height: 2em;
+        width: auto;
+        color: var(--shuttle-color);
+      }
+
+      button:hover {
+        --shuttle-color: #{color.adjust(vars.$light-purple, $lightness: -5%)};
+      }
+    }
+  }
+</style>
 <script>
     class Question extends HTMLElement {
         static count = 0
@@ -64,61 +129,3 @@ const { question } = Astro.props;
     // Tell the browser to use our AstroHeart class for <astro-heart> elements.
     customElements.define("faq-question", Question);
 </script>
-<style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
-
-  $border-rad: 1em;
-  faq-question {
-    position: relative;
-    display: block;
-    background-color: darken($light-purple,2);
-    border-radius: $border-rad;
-    max-width: 50vw;
-    //border: 1rem solid darken($dark-purple, 3);
-    box-shadow:inset 0px 0px 0px 10px darken($dark-purple, 3);
-    word-wrap: break-word;
-    @media screen and (max-width: $screen-mobile-large) {
-      max-width: 80vw;
-    }
-    .header {
-      font-family: $inter;
-      background-color: $dark-purple;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1em;
-      border-radius: $border-rad;
-      border: 1rem solid darken($dark-purple, 3);
-      width:100%;
-      gap:1em;
-
-      button {
-        all: unset;
-        cursor: pointer;
-      }
-      button:focus-visible{
-        outline: $light-purple solid 3px;
-      }
-
-      div:has(> svg) {
-        display:flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      :global(svg) {
-        height: 2em;
-        width: auto;
-        color:$light-purple;
-      }
-
-      button:hover {
-        svg {
-          color: darken($light-purple, 5)
-        }
-      }
-    }
-  }
-</style>

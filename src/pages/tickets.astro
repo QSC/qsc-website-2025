@@ -2,7 +2,7 @@
 import "../styles/main.scss";
 import Layout from "../layouts/Layout.astro";
 
-const forSale = false
+const forSale = true
 ---
 <Layout title="Tickets">
     <meta slot="head" name="description" property="og:description" content="Tickets are now sold out for QSC 2024. Check back in the fall for QSC 2025 tickets!" />
@@ -15,8 +15,12 @@ const forSale = false
     <main slot="content" class="main">
         <div>
             <h1>Tickets</h1>
+            <p>Tickets for QSC 2025 are not yet for sale, but you can sign up to receive an email when they are!</p>
+            <a class="signup" target="_blank" href="https://forms.office.com/r/25VtQpeVz2">Buy Tickets</a>
+            {/*
             <p>Thank you for your interest in attending the Queen's Space Conference!<br/>
                 Ticket sales have ended for QSC 2024. Ticket sales for QSC 2025 will be live in fall of 2024!</p>
+            */}
             {/* <p class="ticketBlurb">Thank you for considering being a delegate for QSC 2024! <br/>We cannot wait to bring you more innovative talks and an enriching weekend at the 2024 Queen's Space Conference.</p>
             <article>
                 <section>
@@ -105,8 +109,9 @@ const forSale = false
     </main>
 </Layout>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
+  @use "sass:color";
 
   .main {
     background-image: url("../images/spacebg.png");
@@ -118,6 +123,23 @@ const forSale = false
 
     p {
       font-size: 1.1em;
+      margin-bottom: 1em;
+    }
+
+    $button-color: cornflowerblue;
+    .signup {
+      background-color:$button-color;
+      border-radius:20px;
+      padding: .8em;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      display: inline-block;
+      margin-bottom: 1em;
+
+      &:hover {
+        background-color: color.adjust($button-color, $lightness: -5%);
+      }
     }
 
     article {
@@ -125,7 +147,7 @@ const forSale = false
       flex-direction: column;
       gap:2em;
 
-      @media screen and (min-width: $screen-mobile-large) {
+      @media screen and (min-width: vars.$screen-mobile-large) {
         margin-inline: 12vw;
       }
     }
@@ -136,13 +158,13 @@ const forSale = false
     }
 
     h1 {
-      color: $yellow;
+      color: vars.$yellow;
       font-size: 5em;
       margin-bottom: .2em;
-      @media screen and (max-width: $screen-mobile-medium){
+      @media screen and (max-width: vars.$screen-mobile-medium){
         font-size: 4em;
       }
-      @media screen and (max-width: $screen-mobile-small){
+      @media screen and (max-width: vars.$screen-mobile-small){
         font-size: 3em;
       }
     }
@@ -153,7 +175,7 @@ const forSale = false
     }
 
     :global(span.orange) {
-      font-weight: $heavy-weight;
+      font-weight: fonts.$heavy-weight;
     }
 
     .ticketBlurb, .bursaryBlurb {
@@ -165,16 +187,16 @@ const forSale = false
 
     .ticketBlurb {
       font-size: 1.3em;
-      font-weight: $medium-weight;
+      font-weight: fonts.$medium-weight;
       margin-bottom: 1em;
     }
 
     .bursaryBlurb {
-      color: $orange;
+      color: vars.$orange;
       margin-bottom: .5em;
       padding:.3em;
       padding-inline: .5em;
-      font-weight: $medium-weight;
+      font-weight: fonts.$medium-weight;
       text-decoration: none;
     }
 
@@ -182,8 +204,8 @@ const forSale = false
       text-decoration: none;
       border-radius: 20px;
       text-align: center;
-      font-family: $orbitron;
-      font-weight: $medium-weight;
+      font-family: fonts.$orbitron;
+      font-weight: fonts.$medium-weight;
     }
 
     .cards {
@@ -193,20 +215,20 @@ const forSale = false
       flex-wrap: wrap;
       justify-content: center;
 
-      @media screen and (min-width: $screen-desktop) {
+      @media screen and (min-width: vars.$screen-desktop) {
         justify-content: space-between;
       }
     }
 
     div:has(>.card) {
-      @media screen and (min-width: $screen-desktop) {
+      @media screen and (min-width: vars.$screen-desktop) {
         max-width: 40%;
         min-width: 30ch;
       }
     }
 
     .card {
-      background-color: rgba($light-purple, 70%);
+      background-color: rgba(vars.$light-purple, 70%);
       padding-inline: 1.5em;
       padding-block:1.25em;
       border-radius: 20px;
@@ -217,17 +239,17 @@ const forSale = false
       width: 100%;
 
       .price {
-        color: $yellow;
-        font-family: $orbitron;
+        color: vars.$yellow;
+        font-family: fonts.$orbitron;
         font-size: 1.5em;
-        font-weight: $medium-weight;
+        font-weight: fonts.$medium-weight;
         text-align: center;
       }
 
       .date {
         color: yellow;
         margin-bottom:1em;
-        font-weight: $medium-weight;
+        font-weight: fonts.$medium-weight;
         text-align: center;
       }
 
@@ -242,31 +264,31 @@ const forSale = false
 
       a.ticketButton {
         padding: 1em;
-        background-color: $dark-purple;
+        background-color: vars.$dark-purple;
         width: 90%;
-        color: $yellow;
+        color: vars.$yellow;
         font-size: 1.1em;
         margin-top: 1em;
       }
 
       a.ticketButton:hover {
-        background-color: lighten($dark-purple,15);
-        color: $orange;
+        background-color: color.adjust(vars.$dark-purple, $lightness: 15%);
+        color: vars.$orange;
       }
     }
 
     .bursary::before {
       content: "*";
-      color: $orange;
+      color: vars.$orange;
       font-size: 5em;
       position: absolute;
       top:-.5em;
       left:-.3em;
-      font-family: $orbitron;
+      font-family: fonts.$orbitron;
     }
 
     .bursary {
-      background-color: rgba($dark-purple, 40%);
+      background-color: rgba(vars.$dark-purple, 40%);
       border-radius: 20px;
       padding-inline: 1.5em;
       padding-block:1.25em;
@@ -274,7 +296,7 @@ const forSale = false
 
       h2, h3 {
         text-align: left;
-        color: $orange;
+        color: vars.$orange;
       }
 
       h3 {
@@ -282,27 +304,27 @@ const forSale = false
       }
 
       a.bursaryButton {
-        background-color: $light-purple;
-        color: $dark-purple;
+        background-color: vars.$light-purple;
+        color: vars.$dark-purple;
         font-size: 1.3em;
         padding: .8em;
-        border: 3px solid $orange;
+        border: 3px solid vars.$orange;
         display: inline-block;
-        font-weight: $medium-weight;
+        font-weight: fonts.$medium-weight;
         margin-top:1em;
       }
 
       a.bursaryButton:hover {
-        background-color: lighten($dark-purple,0);
-        color: $yellow;
+        background-color: vars.$dark-purple;
+        color: vars.$yellow;
       }
 
       .instructions {
         margin-top:1em;
         p:nth-of-type(1) {
           >span {
-            color:lighten($light-purple,10);
-            font-weight: $heavy-weight;
+            color: color.adjust(vars.$light-purple,$lightness: 10%);
+            font-weight: fonts.$heavy-weight;
           }
         }
 
@@ -318,13 +340,13 @@ const forSale = false
           flex-direction: row;
           gap:.5em;
           padding:1em;
-          background-color: rgba($dark-purple,70%);
+          background-color: rgba(vars.$dark-purple,70%);
           border-radius: 20px;
 
           // numbers
           >p:nth-of-type(1) {
-            color: $orange;
-            font-weight: $heavy-weight;
+            color: vars.$orange;
+            font-weight: fonts.$heavy-weight;
           }
 
           // the div with the Q and A
@@ -334,14 +356,14 @@ const forSale = false
 
             // Q
             p:nth-of-type(1) {
-              color: $orange;
+              color: vars.$orange;
             }
 
             // A
             p:nth-of-type(2) {
               color: yellow;
               span {
-                color:$white;
+                color: vars.$white;
               }
             }
           }

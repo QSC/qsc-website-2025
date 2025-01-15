@@ -1,12 +1,13 @@
-@import "reset";
-@import "variables";
-@import "fonts";
-@import "spacing";
+@use "sass:color";
+@use "reset";
+@use "variables";
+@use "fonts";
+@use "spacing";
 
 :root {
   font-size: max(calc(900vw / 1280), 8px);
-  font-family: $quicksand;
-  color: $white;
+  font-family: fonts.$quicksand;
+  color: variables.$white;
 }
 
 html {
@@ -28,12 +29,12 @@ html {
 body {
   font-size: 2rem;
   min-height: 100vh;
-  background-color: $dark-purple;
+  background-color: variables.$dark-purple;
 }
 
 h1,h2,h3 {
-  font-family: $orbitron;
-  font-weight: $medium-weight;
+  font-family: fonts.$orbitron;
+  font-weight: fonts.$medium-weight;
   line-height: 1.25;
 }
 
@@ -50,10 +51,10 @@ h3 {
 }
 
 .sem-h-small {
-  font-family: $orbitron;
-  font-weight: $regular-weight;
+  font-family: fonts.$orbitron;
+  font-weight: fonts.$regular-weight;
   font-size: 3rem;
-  color: $white;
+  color: variables.$white;
   line-height: 1.25;
 }
 
@@ -71,14 +72,14 @@ h3 {
   display: block !important;
 }
 .light-purple {
-  color: $light-purple !important;
+  color: variables.$light-purple !important;
 }
 .light-purple-d3 {
-  color: darken($light-purple,2) !important;
+  color: color.adjust(variables.$light-purple,$lightness: -2%) !important;
 }
 
 .dark-purple {
-  color: $dark-purple !important;
+  color: variables.$dark-purple !important;
 }
 
 .faq-answer {
@@ -86,17 +87,17 @@ h3 {
   padding: 1.5em;
 
   a {
-    color: lighten($orange,9);
-    font-weight: $medium-weight;
+    color: color.adjust(variables.$orange, $lightness: 9%);
+    font-weight: fonts.$medium-weight;
 
   }
   a:hover {
-    color: $white;
+    color: variables.$white;
   }
 }
 
 .orange {
-  color:$orange;
+  color: variables.$orange;
 }
 
 .red {
@@ -104,5 +105,5 @@ h3 {
 }
 
 b {
-  font-weight: $heavy-weight;
+  font-weight: fonts.$heavy-weight;
 }

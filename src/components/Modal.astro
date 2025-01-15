@@ -13,9 +13,42 @@ const { openButton } = Astro.props;
         </div>
     </dialog>
 </div>
+<style lang="scss">
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
 
+  .modal::backdrop {
+    background-color: rgba(vars.$light-purple, 60%);
+    opacity: 60%;
+  }
 
+  .modal {
+    background-color: vars.$dark-purple;
+    border: vars.$white 5px solid;
+    color: vars.$white;
+    border-radius: 5px;
+    padding:.5em;
+    min-width: 100px;
 
+    >div>div:nth-child(1) {
+      width:100%;
+      display:flex;
+      justify-content: right;
+    }
+
+    .closeButton {
+      //all: unset;
+      cursor: pointer;
+      background-color: purple;
+      position:sticky;
+      top:0;
+      right:0;
+      :focus-visible{
+        outline: red solid 3px;
+      }
+    }
+  }
+</style>
 <script>
     const modalDivs = document.querySelectorAll("div:has(>dialog)")
 
@@ -41,39 +74,3 @@ const { openButton } = Astro.props;
         })
     })
 </script>
-<style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
-
-  .modal::backdrop {
-    background-color: rgba($light-purple, 60%);
-    opacity: 60%;
-  }
-
-  .modal {
-    background-color: $dark-purple;
-    border: $white 5px solid;
-    color: $white;
-    border-radius: 5px;
-    padding:.5em;
-    min-width: 100px;
-
-    >div>div:nth-child(1) {
-      width:100%;
-      display:flex;
-      justify-content: right;
-    }
-
-    .closeButton {
-      //all: unset;
-      cursor: pointer;
-      background-color: purple;
-      position:sticky;
-      top:0;
-      right:0;
-      :focus-visible{
-        outline: red solid 3px;
-      }
-    }
-  }
-</style>

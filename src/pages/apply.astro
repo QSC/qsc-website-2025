@@ -40,8 +40,9 @@ const hiring = false
     </main>
 </Layout>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
+  @use "sass:color";
 
   .main {
     background-image: url("../images/spacebg.png");
@@ -49,9 +50,9 @@ const hiring = false
     background-size: cover;
 
     h1 {
-      color: lighten($light-purple, 2);
+      color: color.adjust(vars.$light-purple, $lightness: 2%);
       font-size: 5em;
-      @media screen and (max-width: $screen-mobile-large) {
+      @media screen and (max-width: vars.$screen-mobile-large) {
         font-size: 4em;
       }
     }
@@ -63,9 +64,9 @@ const hiring = false
       margin-bottom: 1em;
 
       em {
-        color: lighten($light-purple,5);
+        color: color.adjust(vars.$light-purple, $lightness: 5%);
         font-size: 1.1em;
-        font-weight: $heavy-weight;
+        font-weight: fonts.$heavy-weight;
       }
     }
 
@@ -77,25 +78,25 @@ const hiring = false
 
     .apply {
       display: inline-block;
-      background-color: darken($light-purple, 4);
-      color: $white;
+      background-color: color.adjust(vars.$light-purple, $lightness: -4%);
+      color: vars.$white;
       font-size: 1.5em;
       text-decoration: none;
-      font-weight: $heavy-weight;
+      font-weight: fonts.$heavy-weight;
 
       padding-inline: 1em;
       padding-block: .8em;
 
       border-radius: 15px;
-      border-color: $orange;
+      border-color: vars.$orange;
       border-width: 3px;
       border-style: solid;
     }
 
 
     .apply:hover {
-      background-color: lighten($dark-purple, 4);
-      border-color: $light-purple;
+      background-color: color.adjust(vars.$dark-purple, $lightness: 4%);
+      border-color: vars.$light-purple;
     }
 
     a {
@@ -103,11 +104,11 @@ const hiring = false
     }
 
     a:hover {
-      color: $light-purple;
+      color: vars.$light-purple;
     }
 
     section:nth-of-type(1) {
-      background-color: darken(rgba($dark-purple, 80%), 2);
+      background-color: color.adjust(rgba(vars.$dark-purple, 80%), $lightness: -2%);
       padding-inline: 2em;
       padding-top: 1em;
       padding-bottom: 2em;

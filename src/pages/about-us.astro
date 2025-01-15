@@ -96,8 +96,9 @@ import placeholder from "../images/qsc_circle_outlined.png"
     </main>
 </Layout>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts";
+  @use "../styles/variables" as vars;
+  @use "sass:color";
 
   .main {
     background-image: url("../images/spacebg.png");
@@ -105,23 +106,23 @@ import placeholder from "../images/qsc_circle_outlined.png"
     background-size: cover;
 
     h1 {
-      color: lighten($dark-purple,2);
+      color: color.adjust(vars.$dark-purple, $lightness: 2%);
       font-size: 5em;
-      @media screen and (max-width: $screen-mobile-large) {
+      @media screen and (max-width: vars.$screen-mobile-large) {
         font-size: 4em;
       }
     }
 
     h2 {
-      color: lighten($light-purple,3);
+      color: color.adjust(vars.$light-purple, $lightness: 3%);
       font-size: 5em;
       text-align: center;
       margin-bottom: .2em;
-      @media screen and (max-width: $screen-mobile-large) {
+      @media screen and (max-width: vars.$screen-mobile-large) {
         font-size: 3em;
       }
 
-      @media screen and (max-width: $screen-mobile-medium) {
+      @media screen and (max-width: vars.$screen-mobile-medium) {
         font-size: 2.5em;
       }
     }
@@ -134,20 +135,20 @@ import placeholder from "../images/qsc_circle_outlined.png"
     }
 
     p {
-      @media screen and (min-width: $screen-mobile-large) {
+      @media screen and (min-width: vars.$screen-mobile-large) {
         max-width: 75%;
       }
     }
 
     section:nth-of-type(1) {
-      background-color:darken(rgba($light-purple,80%),2);
+      background-color: color.adjust(rgba(vars.$light-purple,80%),$lightness: -2%);
       padding-inline:2em;
       padding-top:1em;
       padding-bottom: 2em;
     }
 
     section:nth-of-type(2) {
-      background-color: rgba($dark-purple,80%);
+      background-color: rgba(vars.$dark-purple,80%);
     }
   }
 </style>

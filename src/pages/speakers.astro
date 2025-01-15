@@ -27,7 +27,7 @@ const images = await Astro.glob(
     <main slot="content" class="main"}>
         <section class="history">
             <h1 id="history">History of QSC Speakers</h1>
-            <p>Over the past 12 years, QSC has had 80+ speakers present at our conferences. For over a decade we have been connecting students with professionals in the space sector from a variety of backgrounds. We have had astrophysicists, cosmologists, astronauts, engineers, CEOs, COOs, directors, AI specialists, professors, and many more speakers present at QSC. We've had speakers from NASA, CSA, MDA Space, and Canadian universities, and speakers that have worked on big projects like the James Webb Space Telescope (JWST) and the wide-angle Euclid telescope. Explore all of our speakers below and click on the <Image src={infoIcon} width="30px" alt="blue information icon"/> to learn more! Click on the buttons below to jump to see speakers from a specific year.</p>
+            <p>Over the past 12 years, QSC has had 80+ speakers present at our conferences. For over a decade we have been connecting students with professionals in the space sector from a variety of backgrounds. We have had astrophysicists, cosmologists, astronauts, engineers, CEOs, COOs, directors, AI specialists, professors, and many more speakers present at QSC. We've had speakers from NASA, CSA, MDA Space, and Canadian universities, and speakers that have worked on big projects like the James Webb Space Telescope (JWST) and the wide-angle Euclid telescope. Explore all of our speakers below and click on the <Image src={infoIcon} width=30 alt="blue information icon"/> to learn more! Click on the buttons below to jump to see speakers from a specific year.</p>
             <!-- buttons to jump to years -->
             <div>
                 {
@@ -49,8 +49,9 @@ const images = await Astro.glob(
     </main>
 </Layout>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts";
+  @use "../styles/variables" as vars;
+  @use "sass:color";
 
   .main {
     background-image: url("../images/spacebg.png");
@@ -59,12 +60,12 @@ const images = await Astro.glob(
 
     h1 {
       font-size: 5em;
-      color: $light-purple;
+      color: vars.$light-purple;
 
-      @media screen and (max-width: $screen-mobile-medium){
+      @media screen and (max-width: vars.$screen-mobile-medium){
         font-size: 4em;
       }
-      @media screen and (max-width: $screen-mobile-small){
+      @media screen and (max-width: vars.$screen-mobile-small){
         font-size: 3em;
       }
     }
@@ -78,23 +79,23 @@ const images = await Astro.glob(
       }
 
       a {
-        color: $orange;
+        color: vars.$orange;
       }
 
       a:hover {
-        color: $white;
+        color: vars.$white;
       }
     }
 
     hr {
-      border-color:$light-purple;
+      border-color: vars.$light-purple;
       margin:0;
       margin-block:1em;
     }
 
     section {
       padding-inline:2em;
-      background-color: rgba($dark-purple,90%);
+      background-color: rgba(vars.$dark-purple,90%);
     }
 
     section:nth-of-type(1) {
@@ -108,7 +109,7 @@ const images = await Astro.glob(
 
     .history {
       h2 {
-        color:$light-purple;
+        color: vars.$light-purple;
         scroll-margin-top: calc(var(--navbar-height));
       }
 
@@ -128,7 +129,7 @@ const images = await Astro.glob(
       margin-block: 2em;
 
       .yearButton {
-        background-color: $light-purple;
+        background-color: vars.$light-purple;
         text-align: center;
         padding-block: 0.5em;
         padding-inline: 1.5em;
@@ -136,12 +137,12 @@ const images = await Astro.glob(
         font-size: 1.5em;
         /*width: 150px;*/
         text-decoration: none;
-        color: $dark-purple;
+        color: vars.$dark-purple;
       }
 
       .yearButton:hover {
-        background-color: darken($light-purple,4);
-        color:$white;
+        background-color: color.adjust(vars.$light-purple, $lightness: -4%);
+        color: vars.$white;
       }
     }
 

@@ -10,7 +10,7 @@ import SpeakerBio from "./SpeakerBioButton.astro";
 const { speaker, images, year } = Astro.props;
 
 const headshotPath = speaker["headshot-path"].split(".")[0]
-let src = ""
+let src = null
 if(headshotPath && Object.keys(images).includes(headshotPath)) {
     src = images[headshotPath]
 } else {
@@ -36,13 +36,13 @@ if(headshotPath && Object.keys(images).includes(headshotPath)) {
     </div>
 </div>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
 
   :root {
     --img-size: 250px;
 
-    @media screen and (max-width: $screen-desktop) {
+    @media screen and (max-width: vars.$screen-desktop) {
       --img-size: 200px;
     }
   }
@@ -52,15 +52,15 @@ if(headshotPath && Object.keys(images).includes(headshotPath)) {
     flex-direction: row;
     gap:1em;
     font-size: 1em;
-    font-family: $orbitron;
+    font-family: fonts.$orbitron;
     flex-wrap: wrap;
     //max-width: ;
 
-    @media screen and (max-width: $screen-desktop) {
+    @media screen and (max-width: vars.$screen-desktop) {
       justify-content: center;
     }
 
-    @media screen and (max-width: $screen-mobile-large){
+    @media screen and (max-width: vars.$screen-mobile-large){
       flex-direction: column;
     }
 
@@ -75,7 +75,7 @@ if(headshotPath && Object.keys(images).includes(headshotPath)) {
       }
 
       p:nth-child(2),p:nth-child(3) {
-        font-family: $quicksand;
+        font-family: fonts.$quicksand;
       }
     }
 

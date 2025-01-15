@@ -15,15 +15,16 @@ import Layout from "../layouts/Layout.astro";
     </main>
 </Layout>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
+  @use "sass:color";
 
   .main {
-    background-color: $dark-purple;
+    background-color: vars.$dark-purple;
     padding:2em;
 
     h1 {
-      color: $light-purple;
+      color: vars.$light-purple;
     }
 
     p {
@@ -31,25 +32,25 @@ import Layout from "../layouts/Layout.astro";
     }
 
     p > a {
-      color: $orange;
+      color: vars.$orange;
     }
 
     > a {
       padding: 1em;
-      background-color: $light-purple;
+      background-color: vars.$light-purple;
       border-radius: 20px;
       display: inline-block;
       text-decoration: none;
       margin-top:1em;
-      color:$white;
-      font-family: $orbitron;
-      font-weight: $medium-weight;
+      color: vars.$white;
+      font-family: fonts.$orbitron;
+      font-weight: fonts.$medium-weight;
       letter-spacing: .05em;
     }
 
     > a:hover {
-      background-color: darken($light-purple,20);
-      color:$orange;
+      background-color: color.adjust(vars.$light-purple,$lightness: -5%);
+      color: vars.$orange;
     }
   }
 </style>

@@ -6,7 +6,7 @@ import Modal from "./Modal.astro";
 const {speaker, year, src} = Astro.props;
 ---
 <Modal>
-    <button slot="button" class="infoButton"><Image src={infoIcon} alt="blue information icon" width="200px"/></button>
+    <button slot="button" class="infoButton"><Image src={infoIcon} alt="blue information icon" width=200 /></button>
     <div slot="content" class="content">
         <h3>{speaker.name + ` (${year})`}</h3>
         <div class="left">
@@ -14,7 +14,7 @@ const {speaker, year, src} = Astro.props;
                 <Image
                         src={src}
                         alt=`headshot of ${speaker.name}`
-                        width="250px"
+                        width=250
                 />
             </div>
             <p class="orange">{speaker.company}</p>
@@ -24,11 +24,11 @@ const {speaker, year, src} = Astro.props;
     </div>
 </Modal>
 <style lang="scss">
-  @import "../styles/fonts";
-  @import "../styles/variables";
+  @use "../styles/fonts" as fonts;
+  @use "../styles/variables" as vars;
 
   .infoButton:focus-visible{
-    outline: $light-purple solid 3px;
+    outline: vars.$light-purple solid 3px;
   }
 
   .infoButton {
@@ -57,7 +57,7 @@ const {speaker, year, src} = Astro.props;
     column-gap: 1em;
     row-gap: 1em;
 
-    @media screen and (max-width: $screen-mobile-large) {
+    @media screen and (max-width: vars.$screen-mobile-large) {
       display: flex;
       flex-direction: column;
       gap: 1em;
@@ -96,7 +96,7 @@ const {speaker, year, src} = Astro.props;
     }
 
     .bio {
-      font-family: $quicksand;
+      font-family: fonts.$quicksand;
       font-size: 1em;
       grid-column-start:2;
       grid-row-start:2;

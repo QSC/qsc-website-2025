@@ -6,7 +6,7 @@ const { img, name, position, linkedin } = Astro.props;
 ---
 
 <div class="exec">
-    <Image src={img} alt=`headshot of ${name}`width="600px" height="600px"/>
+    <Image src={img} alt=`headshot of ${name}`width=600 height=600 />
     <div class="desc">
         <p>{name}</p>
         <p>{position}</p>
@@ -16,8 +16,8 @@ const { img, name, position, linkedin } = Astro.props;
     </div>
 </div>
 <style lang="scss">
-  @import "../styles/variables";
-  @import "../styles/fonts";
+  @use "../styles/variables" as vars;
+  @use "../styles/fonts" as fonts;
 
   .exec {
     width: 250px;
@@ -35,7 +35,7 @@ const { img, name, position, linkedin } = Astro.props;
       gap:.25em;
 
       p:nth-child(1) {
-        font-weight: $heavy-weight;
+        font-weight: fonts.$heavy-weight;
       }
 
       p {

@@ -17,19 +17,19 @@ const { title, email, githubLink } = Astro.props;
     </div>
 </div>
 <style lang="scss">
-  @import "../styles/variables";
-  @import "../styles/fonts";
+  @use "../styles/variables" as vars;
+  @use "../styles/fonts" as fonts;
 
   h3 {
     text-align: center;
-    font-family: $quicksand;
+    font-family: fonts.$quicksand;
     font-size: 2.5em;
 
-    @media screen and (max-width: $screen-mobile-large) {
+    @media screen and (max-width: vars.$screen-mobile-large) {
       font-size: 2em;
     }
 
-    @media screen and (max-width: $screen-mobile-medium) {
+    @media screen and (max-width: vars.$screen-mobile-medium) {
       font-size: 1.5em;
     }
   }

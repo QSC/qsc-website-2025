@@ -16,8 +16,6 @@ import networkingIcon from "../icons/networking.svg"
 import shuttleIcon from "../icons/space-shuttle.svg"
 import astronautIcon from "../images/astronaut_icon.png"
 
-import { getImage } from "astro:assets"
-import {callEndpoint} from "astro/dist/core/endpoint";
 import Question from "../components/Question.astro";
 ---
 <Layout title="Home">
@@ -40,7 +38,7 @@ import Question from "../components/Question.astro";
 							<p>Queen's Space Conference</p>
 						</div>
 						<div class="tickets">
-							{<a href="../speakers">Past Speakers</a>}
+							{<a href="../tickets">Buy Tickets</a>}
 						</div>
 					</div>
 				</div>
@@ -153,11 +151,12 @@ import Question from "../components/Question.astro";
 	</main>
 </Layout>
 <style lang="scss">
-	@import "../styles/fonts";
-	@import "../styles/variables";
+	@use "../styles/fonts" as fonts;
+	@use "../styles/variables" as vars;
+	@use "sass:color";
 
-	$about-bg: rgba($dark-purple, 90%);
-	$faq-bg: rgba($light-purple, 80%);
+	$about-bg: rgba(vars.$dark-purple, 90%);
+	$faq-bg: rgba(vars.$light-purple, 80%);
 
 	main:has(.hero) {
 		background-image: url("../images/spacebg.png");
@@ -189,12 +188,13 @@ import Question from "../components/Question.astro";
 			flex-direction: row;
 			flex-basis: 100%;
 			justify-content: space-evenly;
-			@media screen and (max-width: $screen-mobile-large) {
-				justify-content: center;
-			}
 			gap: 3rem;
 			align-items: center;
 			flex-wrap: wrap;
+
+			@media screen and (max-width: vars.$screen-mobile-large) {
+				justify-content: center;
+			}
 
 			.logo-container {
 				display: flex;
@@ -209,38 +209,38 @@ import Question from "../components/Question.astro";
 					justify-content: center;
 					position: relative;
 					h1 {
-						@media screen and (max-width: $screen-mobile-large){
+						@media screen and (max-width: vars.$screen-mobile-large){
 							font-size: 4rem;
 							line-height: 2em;
 						}
 					}
 				}
 				.tickets {
-					color: darken($light-purple,2);
+					color: vars.$light-purple;
 					margin-top: 1em;
 					a {
 						font-size: 2.5em;
-						background-color: rgba($dark-purple, 40%);
-						font-family: $quicksand;
-						font-weight: $regular-weight;
-						border: .5rem solid rgba($light-purple, 80%);
+						background-color: rgba(vars.$dark-purple, 40%);
+						font-family: fonts.$quicksand;
+						font-weight: fonts.$regular-weight;
+						border: .5rem solid rgba(vars.$light-purple, 80%);
 						border-radius: 1rem;
 						padding-inline: .3em;
 						text-decoration: none;
 						color:inherit;
-						font-weight: $heavy-weight;
+						font-weight: fonts.$heavy-weight;
 					}
 					a:hover, a:focus {
-						color: lighten($white, 2);
-						background-color: rgba(lighten($dark-purple,10), 40%);
-						border-color: $white;
+						color: vars.$white;
+						background-color: rgba(color.adjust(vars.$dark-purple, $lightness:10%), 40%);
+						border-color: vars.$white;
 					}
 				}
 			}
 		}
 
 		.bottom {
-			background-color: rgba($light-purple, 40%);
+			background-color: rgba(vars.$light-purple, 40%);
 			padding: 1em;
 			padding-inline: 2em;
 			display: flex;
@@ -250,26 +250,26 @@ import Question from "../components/Question.astro";
 			div {
 				display: flex;
 				font-size: 2.5rem;
-				font-weight: $heavy-weight;
+				font-weight: fonts.$heavy-weight;
 				flex-grow: 1;
 				justify-content: center;
 
 				> * {
 					margin: 0 auto;
 				}
-				@media screen and (max-width: $screen-mobile-large) {
+				@media screen and (max-width: vars.$screen-mobile-large) {
 					flex-direction: column;
 				}
 			}
 		}
 
-		@media screen and (max-width: $screen-mobile-large) {
+		@media screen and (max-width: vars.$screen-mobile-large) {
 			img {
 				display: none;
 			}
 		}
 
-		@media screen and (max-width: $screen-desktop) {
+		@media screen and (max-width: vars.$screen-desktop) {
 			* {
 				text-align: center;
 			}
@@ -306,12 +306,12 @@ import Question from "../components/Question.astro";
 		//background: linear-gradient(to bottom, $about-bg 95%, $faq-bg 100%);
 
 		a {
-			color: lighten($orange,9);
-			font-weight: $medium-weight;
+			color: color.adjust(vars.$orange,$lightness:9%);
+			font-weight: fonts.$medium-weight;
 
 		}
 		a:hover {
-			color: $white;
+			color: vars.$white;
 		}
 
 		.points {
@@ -326,11 +326,11 @@ import Question from "../components/Question.astro";
 			}
 
 			h3 {
-				font-family: $quicksand;
-				font-weight: $regular-weight;
+				font-family: fonts.$quicksand;
+				font-weight: fonts.$regular-weight;
 				margin-left: var(--l-padding);
 				margin-bottom: .1em;
-				@media screen and (max-width: $screen-mobile-large) {
+				@media screen and (max-width: vars.$screen-mobile-large) {
 					text-align: center;
 					margin-left: 0;
 				}
@@ -343,7 +343,7 @@ import Question from "../components/Question.astro";
 				padding: 1rem;
 				gap: 2rem;
 				margin-left: var(--l-padding);
-				@media screen and (max-width: $screen-mobile-large) {
+				@media screen and (max-width: vars.$screen-mobile-large) {
 					justify-content: center;
 					margin:0;
 				}
@@ -360,16 +360,16 @@ import Question from "../components/Question.astro";
 			div:has(>p) {
 				p {
 					padding: var(--l-padding);
-					background-color: rgba(darken($light-purple,2), 60%);
+					background-color: rgba(color.adjust(vars.$light-purple, $lightness: -2%), 60%);
 					border-radius: 15px;
 					max-width:80%;
 
 					.em {
-						color: $orange;
-						font-weight: $heavy-weight;
+						color: vars.$orange;
+						font-weight: fonts.$heavy-weight;
 					}
 				}
-				@media screen and (max-width: $screen-mobile-large) {
+				@media screen and (max-width: vars.$screen-mobile-large) {
 					display:flex;
 					justify-content: center;
 				}
@@ -395,13 +395,13 @@ import Question from "../components/Question.astro";
 		.watermark {
 			font-size: 50rem;
 			position: absolute;
-			font-weight: $medium-weight;
-			font-family: $inter;
+			font-weight: fonts.$medium-weight;
+			font-family: fonts.$inter;
 			top:-15rem;
 			left:-5rem;
 			line-height: 1em;
 			z-index: 1;
-			color: rgba(lighten($dark-purple,6), 80%);;
+			color: rgba(color.adjust(vars.$dark-purple, $lightness: 6%), 80%);
 		}
 
 		*:has(>faq-question) {
@@ -409,7 +409,7 @@ import Question from "../components/Question.astro";
 			flex-direction: column;
 			gap: 3rem;
 
-			@media screen and (max-width: $screen-mobile-large) {
+			@media screen and (max-width: vars.$screen-mobile-large) {
 				//  align-items: center;
 			}
 		}
