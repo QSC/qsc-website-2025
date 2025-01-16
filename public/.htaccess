@@ -8,9 +8,9 @@ Redirect 301 /attend https://qsconference.ca/tickets
 Redirect 301 /purchase https://qsconference.ca/tickets
 
 # Redirecting to sponsor package (change when sponsor page built)
-Redirect 301 /sponsor https://qsconference.ca/Sponsorship%20Package.pdf
-Redirect 301 /sponsors https://qsconference.ca/Sponsorship%20Package.pdf
-Redirect 301 /sponsorship https://qsconference.ca/Sponsorship%20Package.pdf
+#Redirect 301 /sponsor https://qsconference.ca/Sponsorship%20Package.pdf
+#Redirect 301 /sponsors https://qsconference.ca/Sponsorship%20Package.pdf
+#Redirect 301 /sponsorship https://qsconference.ca/Sponsorship%20Package.pdf
 
 # Common Redirects to about page
 Redirect 301 /about https://qsconference.ca/about-us
@@ -24,7 +24,7 @@ Redirect 301 /jobs https://qsconference.ca/apply
 Redirect 301 /applications https://qsconference.ca/apply
 Redirect 301 /join https://qsconference.ca/apply
 
-Redirect 301 /handbook https://qsconference.ca/Delegate%20Handbook.pdf
+#Redirect 301 /handbook https://qsconference.ca/Delegate%20Handbook.pdf
 
 # Page not found
 ErrorDocument 404 /404.html

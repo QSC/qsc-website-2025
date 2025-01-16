@@ -3,20 +3,20 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
     <url>
         <loc>https://www.qsconference.ca/home</loc>
-        <lastmod>2024-4-10</lastmod>
+        <lastmod>2025-1-15</lastmod>
     </url>
 
     <url>
         <loc>https://www.qsconference.ca/about-us</loc>
-        <lastmod>2024-1-15</lastmod>
+        <lastmod>2025-1-15</lastmod>
     </url>
 
     <url>
         <loc>https://www.qsconference.ca/speakers</loc>
-        <lastmod>2024-2-09</lastmod>
+        <lastmod>2025-1-15</lastmod>
     </url>
 </urlset>

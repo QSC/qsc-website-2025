@@ -35,7 +35,7 @@ import Question from "../components/Question.astro";
 							<h1>Inspiring; <br/> <span class="light-purple">Educating;</span> <br/> Connecting.</h1>
 						</div>
 						<div>
-							<p>Queen's Space Conference</p>
+							<p class="subtext">QSC 2025 | Feb 1st</p>
 						</div>
 						<div class="tickets">
 							{<a href="https://forms.office.com/r/25VtQpeVz2" target="_blank">Buy Tickets</a>}
@@ -46,7 +46,7 @@ import Question from "../components/Question.astro";
 			<div  class="center p-2 mt-1 bottom">
 				<div>
 					<p class="sem-h-small">Since 2013</p>
-					<p class="sem-h-small">QSC</p>
+					<p class="sem-h-small">QSC 2025</p>
 					<p class="sem-h-small">Kingston, Ontario</p>
 				</div>
 			</div>
@@ -88,7 +88,7 @@ import Question from "../components/Question.astro";
 								<h3>Professionals from the Space Industry</h3>
 							</div>
 							<div>
-								<p>We bring <span class="em">industry professionals</span> to our conference in order to provide delegates the most informative, inspiring, and memorable conference possible. Seven speakers will talk about their role in the space industry, their contributions, and where we are headed. Past speakers include CEOs, engineers, astrophysicists, astronauts, AI specialists, and more. Check out our <a href="../speakers">speakers page</a> on this site to look at all of our past speakers over the past 13 years!</p>
+								<p>We bring <span class="em">industry professionals</span> to our conference in order to provide delegates the most informative, inspiring, and memorable conference possible. Five speakers will talk about their role in the space industry, their contributions, and where we are headed. Past speakers include CEOs, engineers, astrophysicists, astronauts, AI specialists, and more. Check out our <a href="../speakers">speakers page</a> on this site to look at all of our past speakers over the past 13 years!</p>
 							</div>
 						</div>
 
@@ -214,6 +214,10 @@ import Question from "../components/Question.astro";
 							line-height: 2em;
 						}
 					}
+				}
+
+				.subtext {
+					text-shadow: 2px 2px 15px vars.$light-purple,2px 2px 15px vars.$light-purple,2px 2px 15px vars.$light-purple,2px 2px 15px vars.$light-purple;
 				}
 				.tickets {
 					color: vars.$light-purple;
