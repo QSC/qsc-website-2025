@@ -2,69 +2,50 @@
 import "../styles/main.scss";
 import Layout from "../layouts/Layout.astro";
 
-const forSale = false
+const forSale = true
+const bursary = false
 ---
 <Layout title="Tickets">
-    <meta slot="head" name="description" property="og:description" content="Tickets are now sold out for QSC 2024. Check back in the fall for QSC 2025 tickets!" />
+    <meta slot="head" name="description" property="og:description" content="Tickets for QSC 2025 (held on February 1st) are for sale for $50." />
     <meta slot="head" property="og:url" content="https://www.qsconference.ca/tickets">
     <link slot="head" rel="canonical" href="https://qsconference.com/tickets">
 
     {
-        forSale && <meta slot="head" name="robots" content="noindex">
+        !forSale && <meta slot="head" name="robots" content="noindex">
     }
+
     <main slot="content" class="main">
         <div>
             <h1>Tickets</h1>
-            <p>Tickets for QSC 2025 are not yet for sale, but you can sign up to receive an email when they are!</p>
-            <a class="signup" target="_blank" href="https://forms.office.com/r/25VtQpeVz2">Buy Tickets</a>
-            {/*
-            <p>Thank you for your interest in attending the Queen's Space Conference!<br/>
-                Ticket sales have ended for QSC 2024. Ticket sales for QSC 2025 will be live in fall of 2024!</p>
-            */}
-            {/* <p class="ticketBlurb">Thank you for considering being a delegate for QSC 2024! <br/>We cannot wait to bring you more innovative talks and an enriching weekend at the 2024 Queen's Space Conference.</p>
+            <p class="ticketBlurb">Thank you for considering being a delegate for QSC 2025! <br/>We cannot wait to bring you more innovative talks and an enriching weekend at the 2025 Queen's Space Conference.</p>
             <article>
                 <section>
-                    <a class="bursaryBlurb" href="#bursary">*Bursary available for Queen’s Engineering Students. See details on applying at the bottom of the page.</a>
+                    { bursary && <a class="bursaryBlurb" href="#bursary">*Bursary available for Queen’s Engineering Students. See details on applying at the bottom of the page.</a> }
                     <div class="cards">
                         <div>
                             <div class="card">
-                                <h2>One Day Ticket</h2>
-                                <p class="price">$50<span class="orange">*</span></p>
-                                <p class="date">Only Saturday, February 3rd</p>
-                                <ul>
-                                    <li>Attendance on Saturday, February 3rd</li>
-                                    <li>4 speakers (including keynote speaker)</li>
-                                    <li>Case competition with prizes</li>
-                                    <li>Networking event at the venue Saturday night</li>
-                                    <li>Breakfast, lunch, and dinner on Saturday</li>
-                                </ul>
-                                <a class="ticketButton" href="https://www.engsoc.queensu.ca/product/queens-space-conference-delegate-ticket-one-day/" target="_blank">Buy One-Day Ticket</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="card">
                                 <h2>Full Ticket</h2>
-                                <p class="price">$75<span class="orange">*</span></p>
-                                <p class="date">Both February 3rd and 4th (Saturday and Sunday)</p>
+                                <p class="price">$50 {bursary && <span class="orange">*</span>}</p>
+                                <p class="date">Saturday, February 1st</p>
                                 <ul>
-                                    <li>Attendance on Saturday, February 3rd and Sunday, February 4th</li>
-                                    <li>7 speakers (4 speakers on Saturday, including keynote speaker, and 3 speakers on Sunday)</li>
-                                    <li>Case competition with prizes (Saturday)</li>
-                                    <li>Club fair (Sunday)</li>
-                                    <li>Networking event at the venue Saturday night</li>
-                                    <li>Breakfast, lunch, and dinner on Saturday, breakfast on Sunday</li>
+                                    <li>Attendance on Saturday, February 1st</li>
+                                    <li>5 speakers presentations</li>
+                                    <li>Case competition with prizes</li>
+                                    <li>Networking opportunities</li>
+                                    <li>Breakfast, lunch, and dinner</li>
                                 </ul>
-                                <a class="ticketButton" href="https://www.engsoc.queensu.ca/product/queens-space-conference-delegate-ticket-two-days/" target="_blank">Buy Full Ticket</a>
+                                <a class="ticketButton" href="https://www.bouncelife.com/events/67859c099ac6142b59365413" target="_blank">Buy Full Ticket</a>
                             </div>
                         </div>
                     </div>
                 </section>
 
+                { bursary &&
                 <section id="bursary">
                     <div class='bursary'>
                         <h2>Queen’s Engineering Bursary</h2>
                         <p>Are you a Queen’s Engineering student interested in attending QSC 2024? Apply for a bursary from Engsoc below! A bursary can <span class="orange">reimburse</span> you for up to the <span class="orange">full cost</span> of the ticket! Check out the instructions below to apply for a bursary, then click the button to apply.</p>
-                            <p class="red mt-1">Note that this bursary is only available to Engineering Students at Queen's University</p>
+                        <p class="red mt-1">Note that this bursary is only available to Engineering Students at Queen's University</p>
                         <a class="bursaryButton" href="https://forms.office.com/Pages/ShareFormPage.aspx?id=eCPPiRaKW0S_qx14hTcxIXyaxYRdxflFhdM-OPpAMTtUQjY3UDVMNzVTMjVQTEEzVVROMjIzVEJWMS4u&sharetoken=aLg1GbDUDGZnOCAPRTbQ" target="_blank">Apply for Bursary</a>
                         <div class="instructions">
                             <h3>Bursary Form Instructions</h3>
@@ -78,6 +59,7 @@ const forSale = false
                                         <p>Internal Conference (ie. run by EngSoc)</p>
                                     </div>
                                 </div>
+
                                 <div class="question">
                                     <p>2.</p>
                                     <div>
@@ -85,6 +67,7 @@ const forSale = false
                                         <p>QSC</p>
                                     </div>
                                 </div>
+
                                 <div class="question">
                                     <p>7.</p>
                                     <div>
@@ -92,6 +75,7 @@ const forSale = false
                                         <p><span>Either</span> $50 <span>or</span> $75 <span>depending on which ticket you are buying!</span></p>
                                     </div>
                                 </div>
+
                                 <div class="question">
                                     <p>10.</p>
                                     <div>
@@ -103,8 +87,8 @@ const forSale = false
                             <a class="bursaryButton" href="https://forms.office.com/Pages/ShareFormPage.aspx?id=eCPPiRaKW0S_qx14hTcxIXyaxYRdxflFhdM-OPpAMTtUQjY3UDVMNzVTMjVQTEEzVVROMjIzVEJWMS4u&sharetoken=aLg1GbDUDGZnOCAPRTbQ" target="_blank">Apply for Bursary</a>
                         </div>
                     </div>
-                </section>
-            </article>*/}
+                </section> }
+            </article>
         </div>
     </main>
 </Layout>
@@ -123,23 +107,6 @@ const forSale = false
 
     p {
       font-size: 1.1em;
-      margin-bottom: 1em;
-    }
-
-    $button-color: cornflowerblue;
-    .signup {
-      background-color:$button-color;
-      border-radius:20px;
-      padding: .8em;
-      color: white;
-      text-decoration: none;
-      font-size: 1.5em;
-      display: inline-block;
-      margin-bottom: 1em;
-
-      &:hover {
-        background-color: color.adjust($button-color, $lightness: -5%);
-      }
     }
 
     article {
@@ -216,7 +183,8 @@ const forSale = false
       justify-content: center;
 
       @media screen and (min-width: vars.$screen-desktop) {
-        justify-content: space-between;
+        /*when multiple tickets use: justify-content: space-between;*/
+        justify-content: center;
       }
     }
 
@@ -272,7 +240,7 @@ const forSale = false
       }
 
       a.ticketButton:hover {
-        background-color: color.adjust(vars.$dark-purple, $lightness: 15%);
+        background-color:  color.adjust(vars.$dark-purple, $lightness: 15%);
         color: vars.$orange;
       }
     }
@@ -323,7 +291,7 @@ const forSale = false
         margin-top:1em;
         p:nth-of-type(1) {
           >span {
-            color: color.adjust(vars.$light-purple,$lightness: 10%);
+            color: color.adjust(vars.$light-purple, $lightness: 10%);
             font-weight: fonts.$heavy-weight;
           }
         }
