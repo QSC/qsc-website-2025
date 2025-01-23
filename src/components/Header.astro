@@ -16,7 +16,7 @@ import {Image} from "astro:assets";
             {/*<li><a href="../schedule">Schedule</a></li>*/}
             <li><a href="../speakers">Speakers</a></li>
             <li><a href="../about-us">About Us</a></li>
-            <li><a href="../tickets">Tickets</a></li>
+            <li><a href="../tickets" class="ticketNav">Tickets</a></li>
         </ul>
         <button class="hamburger" aria-controls="navbar" aria-expanded="false">
             <div></div>
@@ -27,7 +27,7 @@ import {Image} from "astro:assets";
 </header>
 <style lang="scss">
 @use "../styles/variables" as vars;
-
+@use "../styles/fonts" as fonts;
 .header {
     display: flex;
     flex-direction: row;
@@ -42,15 +42,20 @@ import {Image} from "astro:assets";
     z-index: 3;
 
     nav {
-    ul {
-        display: flex;
-        flex-direction: row;
-    list-style: none;
-    }
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+        }
 
-    li {
-    overflow: hidden;
-    }
+        li {
+            overflow: hidden;
+        }
+
+        .ticketNav {
+          color:yellow;
+          font-weight: fonts.$medium-weight;
+        }
 
     a {
     width:100%;
