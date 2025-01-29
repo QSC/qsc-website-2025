@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import speakers from "../res/speaker_data_2024_v3.json"
+import speakers from "../res/speaker_data_2025_v2.json"
 import SpeakerGroup from "../components/SpeakerGroup.astro";
 import infoIcon from "../icons/information_icon.png";
 import { Image } from 'astro:assets';
@@ -18,6 +18,7 @@ const images = await Astro.glob(
     }
     return map
 });
+let currentYear = 2025
 ---
 
 <Layout title="Speakers">
@@ -25,9 +26,16 @@ const images = await Astro.glob(
     <meta slot="head" property="og:url" content="https://www.qsconference.ca/speakers">
 
     <main slot="content" class="main"}>
+        <section>
+            <h1>Our Speakers</h1>
+            <p class="desc">Every year we bring in industry professionals to deliver inspiring presentations at our conference. The speakers for QSC 2025 have been carefully selected, and can seen below. Click on the <Image src={infoIcon} width="30" alt="blue information icon"/> to see a short description of who the speaker is and what they do! This year's presentation topics include: Satellite Validation, Microgravity, Low Earth Orbit (LEO) Infrastructure, Global Meteor Network, Space Situational Awareness, and Escerichia Coli Biofilm Formation and Microgravity. You can also see all the past 70+ speakers QSC has had over the past 12 years of running in our <a href="#history">History of QSC Speakers</a> section below.</p>
+            <hr/>
+            <SpeakerGroup speakerList={speakers[currentYear]} year={currentYear} images={images}/>
+            <hr/>
+        </section>
         <section class="history">
-            <h1 id="history">History of QSC Speakers</h1>
-            <p>Speakers for QSC 2025 will be posted soon! Over the past 12 years, QSC has had 80+ speakers present at our conferences. For over a decade we have been connecting students with professionals in the space sector from a variety of backgrounds. We have had astrophysicists, cosmologists, astronauts, engineers, CEOs, COOs, directors, AI specialists, professors, and many more speakers present at QSC. We've had speakers from NASA, CSA, MDA Space, and Canadian universities, and speakers that have worked on big projects like the James Webb Space Telescope (JWST) and the wide-angle Euclid telescope. Explore all of our speakers below and click on the <Image src={infoIcon} width=30 alt="blue information icon"/> to learn more! Click on the buttons below to jump to see speakers from a specific year.</p>
+            <h2 id="history">History of QSC Speakers</h2>
+            <p>Over the past 12 years, QSC has had 80+ speakers present at our conferences. For over a decade we have been connecting students with professionals in the space sector from a variety of backgrounds. We have had astrophysicists, cosmologists, astronauts, engineers, CEOs, COOs, directors, AI specialists, professors, and many more speakers present at QSC. We've had speakers from NASA, CSA, MDA Space, and Canadian universities, and speakers that have worked on big projects like the James Webb Space Telescope (JWST) and the wide-angle Euclid telescope. Explore all of our speakers below and click on the <Image src={infoIcon} width=30 alt="blue information icon"/> to learn more! Click on the buttons below to jump to see speakers from a specific year.</p>
             <!-- buttons to jump to years -->
             <div>
                 {
@@ -40,7 +48,8 @@ const images = await Astro.glob(
             <hr/>
             <div class="yearSections">
                 {
-                    Object.keys(speakers).reverse().map(year => {
+                    // TODO make this change from including/excluding most recent year
+                    Object.keys(speakers).reverse().filter(year => year != ""+currentYear).map(year => {
                         return <SpeakerGroup speakerList={speakers[year]} title={year} year={year} images={images}/>
                     })
                 }
