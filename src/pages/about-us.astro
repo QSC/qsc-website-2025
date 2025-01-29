@@ -26,6 +26,16 @@ import yusuf from "../images/team/Yususf.png"
 import mariepier from "../images/team/Marie-Pier.png"
 import rory from "../images/team/Rory.png"
 
+import leo from "../images/team/leo.jpeg"
+import sanjana from "../images/team/sanjana.jpeg"
+import emilio from "../images/team/emilio.jpg"
+import izzy from "../images/team/izzy.jpg"
+import terrance from "../images/team/terrance.jpeg"
+import jaron from "../images/team/jaron.jpg"
+
+
+
+
 import placeholder from "../images/qsc_circle_outlined.png"
 ---
 
@@ -37,60 +47,62 @@ import placeholder from "../images/qsc_circle_outlined.png"
     <main slot="content" class="main">
         <section>
             <h1>About Us</h1>
-            <p>The Queen's Space Conference is an annual student-run conference that has taken place every year for over a decade. The QSC executive team is comprised of over a dozen passionate students from different disciplines and backgrounds that come together to provide opportunities for our conference delegates every year. We strive to bring impactful speakers to our conference to deliver enriching presentations and to help students break into the industry by facilitating networking opportunities and connections. Last year's executive team can be seen below, and our 2025 team will be posted soon. If you have questions/inquiries you can click on the email buttons next to the team titles.</p>
+            <p>The Queen's Space Conference is an annual student-run conference that has taken place every year for over a decade. The QSC executive team is comprised of over a dozen passionate students from different disciplines and backgrounds that come together to provide opportunities for our conference delegates every year. We strive to bring impactful speakers to our conference to deliver enriching presentations and to help students break into the industry by facilitating networking opportunities and connections. Meet our 2025 executive team!</p>
         </section>
 
         <section>
-            <h2>&#8212;2024 Team&#8212;</h2>
+            <h2>&#8212;2025 Team&#8212;</h2>
             <div class="groups">
                 <ExecGroup title="QSC Chairs" email="qsc@engsoc.queensu.ca">
-                    <Exec img={aislyn} name="Aislyn Watson" position="Co-Chair"/>
-                    <Exec img={grant} name="Grant Hurley" position="Co-Chair" linkedin="https://www.linkedin.com/in/grant-hurley-a83026233/"/>
+                    <Exec img={isaiah} name="Isaiah Yoder" position="Co-Chair"/>
+                    <Exec img={placeholder} name="Hassan Chaudhary " position="Co-Chair" linkedin="https://www.linkedin.com/in/hassan-chaudhary-684894289"/>
                 </ExecGroup>
 
                 <ExecGroup title="Logistics Team" email="qsc.logistics@engsoc.queensu.ca">
-                    <Exec img={dani} name="Dani Zhao" position="Logistics Director" linkedin="https://www.linkedin.com/in/dani-zhao/"/>
-                    <Exec img={alexis} name="Alexis Paredes" position="Logistics Coordinator" linkedin="https://www.linkedin.com/in/alexis-paredes-a10373236/"/>
-                    <Exec img={henry} name="Henry Bruin" position="Events Coordinator" linkedin="https://www.linkedin.com/in/henry-bruin-27a5b022b/"/>
+                    <Exec img={izzy} name="Izzy Kim" position="Logistics Director" linkedin="https://www.linkedin.com/in/izzy-kim-176700180/"/>
+                    <Exec img={terrance} name="Terrance Accardi" position="Logistics Coordinator" linkedin="http://linkedin.com/in/terrance-accardi-aa68b8347"/>
                 </ExecGroup>
 
                 <ExecGroup title="Finance Team" email="qsc.finance@engsoc.queensu.ca">
-                    <Exec img={mischa} name="Mischa Kapp" position="Finance Director"/>
-                    <Exec img={placeholder} name="Cameron Bass" position="Finance Coordinator"/>
+                    <Exec img={sanjana} name="Sanjana Sinha" position="Finance Director" linkedin="https://www.linkedin.com/in/sanjana-sinha-b63933319"/>
+                    <Exec img={leo} name="Leo Markham" position="Finance Coordinator" linkedin="www.linkedin.com/in/leo-markham"/>
                 </ExecGroup>
 
+                { false &&
                 <ExecGroup title="Sponsorships Team" email="qsc.sponsorships@engsoc.queensu.ca">
                     <Exec img={andrew} name="Andrew Poltoranos" position="Sponsorships Director"/>
                     <Exec img={willson} name="Willson Bonney" position="Sponsorships Coordinator"/>
                     <Exec img={placeholder} name="Emily Heit" position="Sponsorships Coordinator"/>
-                </ExecGroup>
+                </ExecGroup> }
 
+                { false &&
                 <ExecGroup title="Speakers Team" email="qsc.speakers@engsoc.queensu.ca">
                     <Exec img={maya} name="Maya Kerzner" position="Speakers Director"/>
                     <Exec img={sophia} name="Sophia Watson" position="Speakers Coordinator"/>
                     <Exec img={ariya} name="Ariya Gupta" position="Speakers Coordinator" linkedin="https://www.linkedin.com/in/ariya-g-69aa86204/"/>
-                </ExecGroup>
+                </ExecGroup> }
 
+                { false &&
                 <ExecGroup title="Delegates Team" email="qsc.delegates@engsoc.queensu.ca">
-                    <Exec img={isabelle} name="Isabelle Pena Garcia" position="Delegates Director"/>
+                    <Exec img={isabelle} name="Carolyn " position="Delegates Director"/>
                     <Exec img={isaiah} name="Isaiah Yoder" position="Internal Delegates Coordinator"/>
                     <Exec img={aj} name="Alexander J.M. Kapty" position="External Delegates Coordinator"/>
-                </ExecGroup>
+                </ExecGroup> }
 
-                <ExecGroup title="Marketing Team" email="qsc.marketing@engsoc.queensu.ca">
-                    <Exec img={mikayla} name="Mikayla Schoner-Crabtree" position="Marketing & IT Director"/>
-                    <Exec img={rebecca} name="Rebecca Dudley" position="Marketing Coordinator"/>
-                </ExecGroup>
-
-                <ExecGroup title="IT & Web" email="qsc.it@engsoc.queensu.ca" githubLink="https://github.com/QSC">
-                    <Exec img={rory} name="Rory Macdonald" position="IT Lead & Webmaster" linkedin="https://www.linkedin.com/in/rory-mac"/>
+                <ExecGroup title="Marketing & IT Team" email="qsc.marketing@engsoc.queensu.ca">
+                    <Exec img={rory} name="Rory Macdonald" position="Marketing & IT Director" linkedin="https://www.linkedin.com/in/rory-mac"/>
+                    <Exec img={yusuf} name="Yusuf Jaffer" position="Marketing Coordinator" linkedin="https://www.linkedin.com/in/yusuf-jaffer-798743293/"/>
                 </ExecGroup>
 
                 <ExecGroup title="First Year Reps">
-                    <Exec img={carolyn} name="Carolyn McKenna" position="FYR"/>
-                    <Exec img={yusuf} name="Yusuf Jaffer" position="FYR"/>
-                    <Exec img={mariepier} name="Marie-Pier" position="FYR"/>
+                    <Exec img={emilio} name="Emilio Santos" position="FYR" linkedin="www.linkedin.com/in/emilio-santos-"/>
+                    <Exec img={jaron} name="Jaron Cyna" position="FYR" linkedin="https://www.linkedin.com/in/jaron-cyna-67982828a/"/>
                 </ExecGroup>
+
+                { false &&
+                <ExecGroup title="IT & Web" email="qsc.it@engsoc.queensu.ca" githubLink="https://github.com/QSC">
+                    <Exec img={rory} name="Rory Macdonald" position="IT Lead & Webmaster" linkedin="https://www.linkedin.com/in/rory-mac"/>
+                </ExecGroup> }
             </div>
         </section>
     </main>
